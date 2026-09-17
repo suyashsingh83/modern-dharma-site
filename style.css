@@ -1,1 +1,134 @@
+body{
+    margin:0;
+    background:#0d0d0d;
+    color:#f4f1ea;
+    font-family:Inter,sans-serif;
+}
 
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    padding:40px 60px;
+    color:#d4a62a;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.hero{
+    padding:120px 60px;
+    max-width:900px;
+}
+
+.label{
+    color:#d4a62a;
+    margin-bottom:30px;
+    letter-spacing:3px;
+    font-size:12px;
+}
+
+.hero h1{
+    font-family:'Cormorant Garamond', serif;
+    font-size:88px;
+    font-weight:500;
+    margin:0;
+    line-height:1;
+}
+
+.hero h2{
+    color:#d4a62a;
+    font-family:'Cormorant Garamond', serif;
+    font-size:36px;
+    font-weight:400;
+}
+
+.quote{
+    margin-top:40px;
+    line-height:1.8;
+}
+
+.buttons{
+    margin-top:40px;
+}
+
+.btn-primary,
+.btn-secondary{
+    text-decoration:none;
+    padding:14px 28px;
+    margin-right:10px;
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+.btn-primary{
+    background:#d4a62a;
+    color:#000;
+}
+
+.btn-secondary{
+    border:1px solid #555;
+    color:#fff;
+}
+
+.about,
+.reader{
+    padding:140px 60px;
+    border-top:1px solid #1f1f1f;
+}
+
+.section-label{
+    color:#d4a62a;
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:40px;
+}
+
+.about h3,
+.reader h3{
+    font-family:'Cormorant Garamond', serif;
+    font-size:64px;
+    font-weight:500;
+    max-width:700px;
+}
+
+.about p,
+.reader p{
+    max-width:700px;
+    line-height:1.8;
+    color:#bbb;
+}
+
+.reader{
+    text-align:center;
+}
+
+footer{
+    padding:120px 20px;
+    text-align:center;
+}
+
+.triangle{
+    color:#d4a62a;
+    margin-bottom:20px;
+}
+
+.footer-question{
+    font-family:'Cormorant Garamond', serif;
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.footer-title{
+    color:#d4a62a;
+    letter-spacing:3px;
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.footer-subtitle{
+    color:#aaa;
+    margin-bottom:20px;
+}
+
+.copyright{
+    color:#777;
+}
