@@ -357,7 +357,11 @@ h1 {
   overflow: hidden;
   border: 1px solid rgba(202,163,60,.24);
   background: #17130f;
+
+  max-width: 520px;
 }
+
+
 .author-portrait-wrap::before {
   content: "";
   position: absolute;
