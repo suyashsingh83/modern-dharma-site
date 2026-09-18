@@ -172,28 +172,10 @@
 
   <footer class="site-footer">
     <div class="footer-triangle" aria-hidden="true">△</div>
-    <button class="footer-question footer-question-trigger" type="button" aria-expanded="false" aria-controls="footer-reveal">
-      What keeps showing up?
-    </button>
-    <p class="footer-reveal" id="footer-reveal" aria-hidden="true">What is trying to emerge?</p>
+    <p class="footer-question">What keeps showing up?</p>
     <p class="footer-brand">MODERN DHARMA</p>
     <p class="footer-themes">Fitness <span>•</span> Purpose <span>•</span> Consciousness</p>
     <p class="copyright">© 2026</p>
   </footer>
-
-  <script>
-    (() => {
-      const trigger = document.querySelector('.footer-question-trigger');
-      const reveal = document.querySelector('#footer-reveal');
-      if (!trigger || !reveal) return;
-
-      trigger.addEventListener('click', () => {
-        const opened = trigger.getAttribute('aria-expanded') === 'true';
-        trigger.setAttribute('aria-expanded', String(!opened));
-        reveal.setAttribute('aria-hidden', String(opened));
-        reveal.classList.toggle('is-visible', !opened);
-      });
-    })();
-  </script>
 </body>
 </html>
