@@ -508,3 +508,24 @@ h1 {
     width: 145px;
   }
 }
+
+
+.mobile-cover {
+    display: none;
+}
+
+.desktop-cover {
+    display: block;
+}
+
+@media (max-width: 760px) {
+
+    .desktop-cover {
+        display: none;
+    }
+
+    .mobile-cover {
+        display: block;
+    }
+
+}
