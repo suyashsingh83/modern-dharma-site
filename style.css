@@ -334,3 +334,112 @@ h1 {
   .nav-links a, .nav-links .sep { display:none; }
   .clues-cue { margin-top:1.8rem; }
 }
+
+
+/* v0.1.4 author and contact section */
+.author {
+  background: var(--black-soft);
+  min-height: auto;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+.author-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, .9fr) minmax(360px, 1.1fr);
+  gap: 8vw;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.author-portrait-wrap {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(202,163,60,.24);
+  background: #17130f;
+}
+.author-portrait-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 1.25rem;
+  z-index: 2;
+  border-top: 1px solid rgba(202,163,60,.22);
+  border-left: 1px solid rgba(202,163,60,.22);
+  pointer-events: none;
+}
+.author-portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 2.55;
+  object-fit: cover;
+  object-position: center 38%;
+  filter: saturate(.92) contrast(1.03);
+}
+.author-copy h2 {
+  margin-bottom: 2.5rem;
+}
+.author-copy p {
+  max-width: 650px;
+}
+.author-name {
+  color: var(--ivory) !important;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.5rem, 2.2vw, 2.15rem) !important;
+  line-height: 1.25 !important;
+}
+.author-connect {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.author-connect .content-label {
+  margin: 0 0 1.2rem;
+}
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--ivory);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  text-decoration: none;
+  transition: color .2s ease, transform .2s ease;
+}
+.instagram-link:hover {
+  color: var(--gold);
+  transform: translateX(3px);
+}
+.author-architecture {
+  position: absolute;
+  right: -22vw;
+  bottom: -35vw;
+  width: 62vw;
+  aspect-ratio: 1;
+  border-left: 1px solid rgba(202,163,60,.14);
+  border-right: 1px solid rgba(202,163,60,.14);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+@media (max-width: 900px) {
+  .author-grid {
+    grid-template-columns: minmax(280px, .9fr) minmax(320px, 1.1fr);
+    gap: 5vw;
+  }
+}
+@media (max-width: 760px) {
+  .author {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  .author-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .author-portrait {
+    aspect-ratio: 4 / 5;
+    object-position: center 34%;
+  }
+  .author-copy h2 {
+    margin-bottom: 2rem;
+  }
+}
