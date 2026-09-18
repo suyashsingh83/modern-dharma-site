@@ -529,3 +529,9 @@ h1 {
     }
 
 }
+
+@media (max-width: 760px) {
+  .book-cover-panel {
+    display: none;
+  }
+}
