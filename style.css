@@ -159,3 +159,32 @@ h1 {
   .reflection .section-label { text-align: center; }
   .site-footer { min-height: 60vh; padding: 7rem 1.35rem 4rem; }
 }
+
+
+.form-container {
+  width: min(100%, 980px);
+  margin: 4rem auto 0;
+  background: #ffffff;
+  border: 1px solid rgba(202, 163, 60, 0.3);
+  overflow: hidden;
+}
+
+.reflection-form {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  min-height: 720px;
+  border: 0;
+  background: #ffffff;
+}
+
+@media (max-width: 760px) {
+  .form-container {
+    margin-top: 3rem;
+  }
+
+  .reflection-form {
+    height: 85vh;
+    min-height: 680px;
+  }
+}
