@@ -584,7 +584,7 @@ h1 {
 .inquiry-trigger {
   background: transparent;
   border: none;
-  color: var(--ivory);
+  color: inherit;
   font: inherit;
   cursor: pointer;
   padding: 0;
@@ -618,33 +618,4 @@ h1 {
   max-height: 80px;
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Staggered reveal for the top inquiry Easter egg */
-.inquiry-reveal .inquiry-line {
-  opacity: 0;
-  transform: translateY(-4px);
-  transition: opacity .42s ease, transform .42s ease;
-}
-
-.inquiry-reveal.active .inquiry-line-one {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: .08s;
-}
-
-.inquiry-reveal.active .inquiry-line-two {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: .80s;
-}
-
-.inquiry-reveal:not(.active) .inquiry-line {
-  transition-delay: 0s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .inquiry-reveal .inquiry-line {
-    transition: none;
-  }
 }
