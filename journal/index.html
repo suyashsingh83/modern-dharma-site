@@ -1,3 +1,7 @@
+---
+layout: null
+permalink: /journal/
+---
 <!DOCTYPE html>
 
 <html lang="en">
@@ -44,93 +48,38 @@
 </section>
 </header>
 <main class="journal-main" id="entries">
-<section aria-labelledby="journal-inquiries" class="journal-section">
-<div class="journal-section-heading">
-<p class="journal-kicker"><span aria-hidden="true">△</span> 01 / INQUIRIES</p>
-<h2 id="journal-inquiries">Questions worth<br/>staying with.</h2>
-</div>
-<div class="journal-grid journal-grid-dark">
-<article class="journal-card journal-card-inquiry journal-card-featured">
-<p class="journal-card-type">INQUIRY</p>
-<h3>What if understanding isn't enough?</h3>
-<p>Understanding can reveal every piece and still leave reality unchanged.</p>
-<a aria-label="Continue On Instagram for What if understanding isn't enough?" class="journal-instagram-link" href="https://www.instagram.com/p/DdgofG_iD_Rw5qp-ij-tlkAzI-JKGYPOabty2M0/" rel="noopener noreferrer" target="_blank">CONTINUE ON INSTAGRAM <span aria-hidden="true">↗</span></a></article>
-<article class="journal-card journal-card-inquiry">
-<p class="journal-card-type">INQUIRY</p>
-<h3>What keeps trying to express itself through you?</h3>
-<p>Not the title. Not the approved version. The movement that keeps returning.</p>
-<a aria-label="Continue On Instagram for What keeps trying to express itself through you?" class="journal-instagram-link" href="https://www.instagram.com/p/DdglnisiPPHy4pFGla80LWZl3aHOWb6SXnHkzk0/" rel="noopener noreferrer" target="_blank">CONTINUE ON INSTAGRAM <span aria-hidden="true">↗</span></a></article>
-<article class="journal-card journal-card-inquiry">
-<p class="journal-card-type">INQUIRY</p>
-<h3>What if the pattern is the answer?</h3>
-<p>Different people. Different places. The same recurring pull beneath them.</p>
-<a aria-label="Continue On Instagram for What if the pattern is the answer?" class="journal-instagram-link" href="https://www.instagram.com/p/DdgmWkBiDLAQCKCHRy7-7rrsPExiEIT4KbZ0Mc0/" rel="noopener noreferrer" target="_blank">CONTINUE ON INSTAGRAM <span aria-hidden="true">↗</span></a></article>
-</div>
+
+
+
+
+
+{% for category in site.data.journal.categories %}
+<section class="journal-section {{ category.section_class }}" aria-labelledby="journal-{{ category.key }}">
+  <div class="journal-section-heading">
+    <p class="journal-kicker"><span aria-hidden="true">{{ category.symbol }}</span> {{ category.number }} / {{ category.label }}</p>
+    <h2 id="journal-{{ category.key }}">{{ category.heading }}</h2>
+  </div>
+  <div class="journal-grid {{ category.grid_class }}">
+    {% assign category_entries = site.data.journal.entries | where: "category", category.key %}
+    {% for entry in category_entries %}
+    <article class="journal-card {{ category.card_class }}{% if forloop.first %} journal-card-featured{% endif %}">
+      <p class="journal-card-type">{{ category.label | remove: 'S' }}</p>
+      <h3>{{ entry.title }}</h3>
+      <p>{{ entry.summary }}</p>
+      {% if entry.visual == 'triangle' %}
+      <div class="journal-typographic-triangle" role="img" aria-label="Modern Dharma Triangle: Fitness, Purpose, and Consciousness">
+        <span class="journal-tt-label journal-tt-fitness">FITNESS</span>
+        <span class="journal-tt-label journal-tt-purpose">PURPOSE</span>
+        <span class="journal-tt-label journal-tt-consciousness">CONSCIOUSNESS</span>
+        <span class="journal-tt-mark" aria-hidden="true">△</span>
+      </div>
+      {% endif %}
+      <a class="journal-instagram-link" href="{{ entry.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="{{ entry.cta | capitalize }} for {{ entry.title }}">{{ entry.cta }} <span aria-hidden="true">↗</span></a>
+    </article>
+    {% endfor %}
+  </div>
 </section>
-<section aria-labelledby="journal-principles" class="journal-section journal-section-light">
-<div class="journal-section-heading">
-<p class="journal-kicker"><span aria-hidden="true">□</span> 02 / PRINCIPLES</p>
-<h2 id="journal-principles">What the evidence<br/>seems to suggest.</h2>
-</div>
-<div class="journal-grid">
-<article class="journal-card journal-card-principle journal-card-featured">
-<p class="journal-card-type">PRINCIPLE</p>
-<h3>Understanding is not control.</h3>
-<p>Understanding can explain reality. It cannot command reality.</p>
-<a aria-label="Continue On Instagram for Understanding is not control." class="journal-instagram-link" href="https://www.instagram.com/p/Ddgt-m6iL08ySFg0UeoJcJVdRm4uMMm2yQ8W5A0/" rel="noopener noreferrer" target="_blank">CONTINUE ON INSTAGRAM <span aria-hidden="true">↗</span></a></article>
-<article class="journal-card journal-card-principle">
-<p class="journal-card-type">PRINCIPLE</p>
-<h3>A closed door chosen freely carries surprisingly little grief.</h3>
-<p>Not every possibility is a responsibility. Not every open door needs a yes.</p>
-<a aria-label="Continue On Instagram for A closed door chosen freely carries surprisingly little grief." class="journal-instagram-link" href="https://www.instagram.com/p/DdgoT5BiMmpsejWOslGP8rGuxlRkV5UePEion40/" rel="noopener noreferrer" target="_blank">CONTINUE ON INSTAGRAM <span aria-hidden="true">↗</span></a></article>
-<article class="journal-card journal-card-principle">
-<p class="journal-card-type">PRINCIPLE</p>
-<h3>Do not carry somebody else's problem.</h3>
-<p>Understanding someone does not oblige you to carry what belongs to them.</p>
-<a aria-label="Continue On Instagram for Do not carry somebody else's problem." class="journal-instagram-link" href="https://www.instagram.com/p/DdgiImGiN-Wt6b3KbiSm2xLKPkxYxHv-ZY_S340/" rel="noopener noreferrer" target="_blank">CONTINUE ON INSTAGRAM <span aria-hidden="true">↗</span></a></article>
-</div>
-</section>
-<section aria-labelledby="journal-observations" class="journal-section">
-<div class="journal-section-heading">
-<p class="journal-kicker"><span aria-hidden="true">○</span> 03 / FIELD OBSERVATIONS</p>
-<h2 id="journal-observations">Something reality<br/>showed first.</h2>
-</div>
-<div class="journal-grid journal-grid-observations">
-<article class="journal-card journal-card-observation journal-card-featured">
-<p class="journal-card-type">FIELD OBSERVATION</p>
-<h3>The pattern was visible long before I understood it.</h3>
-<p>Mount Athos. A mountain casting its own triangular shadow across the landscape.</p>
-<a aria-label="View Observation for The pattern was visible long before I understood it." class="journal-instagram-link" href="https://www.instagram.com/p/DdglC6UCN1FeBLbcRHM7w7yhLtUwjPEmVh2dA00/" rel="noopener noreferrer" target="_blank">VIEW OBSERVATION <span aria-hidden="true">↗</span></a></article>
-<article class="journal-card journal-card-observation">
-<p class="journal-card-type">FIELD OBSERVATION</p>
-<h3>Nature seems remarkably unconcerned with certainty.</h3>
-<p>A tree found a path through stone. The roots moved before the guarantee arrived.</p>
-<a aria-label="View Observation for Nature seems remarkably unconcerned with certainty." class="journal-instagram-link" href="https://www.instagram.com/p/DdglC6UCN1FeBLbcRHM7w7yhLtUwjPEmVh2dA00/" rel="noopener noreferrer" target="_blank">VIEW OBSERVATION <span aria-hidden="true">↗</span></a></article>
-</div>
-</section>
-<section aria-labelledby="journal-frameworks" class="journal-section journal-section-gold">
-<div class="journal-section-heading">
-<p class="journal-kicker"><span aria-hidden="true">◇</span> 04 / FRAMEWORKS</p>
-<h2 id="journal-frameworks">Maps of the<br/>investigation.</h2>
-</div>
-<div class="journal-grid journal-grid-frameworks">
-<article class="journal-card journal-card-framework journal-card-featured">
-<p class="journal-card-type">FRAMEWORK</p>
-<h3>The Modern Dharma Triangle</h3>
-<div aria-label="Modern Dharma Triangle: Fitness, Purpose, and Consciousness" class="journal-typographic-triangle" role="img">
-<span class="journal-tt-label journal-tt-fitness">FITNESS</span>
-<span class="journal-tt-label journal-tt-purpose">PURPOSE</span>
-<span class="journal-tt-label journal-tt-consciousness">CONSCIOUSNESS</span>
-<span aria-hidden="true" class="journal-tt-mark">△</span>
-</div>
-<a aria-label="Explore Framework for The Modern Dharma Triangle" class="journal-instagram-link" href="https://www.instagram.com/p/Ddghlw-iJHjIXBdlshKemuQ9IgEeu47IVdZktw0/" rel="noopener noreferrer" target="_blank">EXPLORE FRAMEWORK <span aria-hidden="true">↗</span></a></article>
-<article class="journal-card journal-card-framework">
-<p class="journal-card-type">FRAMEWORK</p>
-<h3>Why Modern Dharma?</h3>
-<p>The questions are ancient. The investigation is contemporary.</p>
-<a aria-label="Explore Framework for Why Modern Dharma?" class="journal-instagram-link" href="https://www.instagram.com/p/Ddglxf9COs9clPKYR_bIMRDwqXSf28kbGXuaZw0/" rel="noopener noreferrer" target="_blank">EXPLORE FRAMEWORK <span aria-hidden="true">↗</span></a></article>
-</div>
-</section>
+{% endfor %}
 <section class="journal-continuation">
 <p class="journal-kicker"><span aria-hidden="true">△</span> THE LIVING JOURNAL</p>
 <h2>The notebook<br/>is still open.</h2>

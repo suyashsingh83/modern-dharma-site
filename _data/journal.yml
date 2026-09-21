@@ -1,0 +1,85 @@
+categories:
+- key: inquiry
+  number: '01'
+  label: INQUIRIES
+  symbol: △
+  heading: Questions worth<br>staying with.
+  section_class: ''
+  grid_class: journal-grid-dark
+  card_class: journal-card-inquiry
+- key: principle
+  number: '02'
+  label: PRINCIPLES
+  symbol: □
+  heading: What the evidence<br>seems to suggest.
+  section_class: journal-section-light
+  grid_class: ''
+  card_class: journal-card-principle
+- key: observation
+  number: '03'
+  label: FIELD OBSERVATIONS
+  symbol: ○
+  heading: Something reality<br>showed first.
+  section_class: ''
+  grid_class: journal-grid-observations
+  card_class: journal-card-observation
+- key: framework
+  number: '04'
+  label: FRAMEWORKS
+  symbol: ◇
+  heading: Maps of the<br>investigation.
+  section_class: journal-section-gold
+  grid_class: journal-grid-frameworks
+  card_class: journal-card-framework
+entries:
+- category: inquiry
+  title: What if understanding isn't enough?
+  summary: Understanding can reveal every piece and still leave reality unchanged.
+  instagram: https://www.instagram.com/p/DdgofG_iD_Rw5qp-ij-tlkAzI-JKGYPOabty2M0/
+  cta: CONTINUE ON INSTAGRAM
+- category: inquiry
+  title: What keeps trying to express itself through you?
+  summary: Not the title. Not the approved version. The movement that keeps returning.
+  instagram: https://www.instagram.com/p/DdglnisiPPHy4pFGla80LWZl3aHOWb6SXnHkzk0/
+  cta: CONTINUE ON INSTAGRAM
+- category: inquiry
+  title: What if the pattern is the answer?
+  summary: Different people. Different places. The same recurring pull beneath them.
+  instagram: https://www.instagram.com/p/DdgmWkBiDLAQCKCHRy7-7rrsPExiEIT4KbZ0Mc0/
+  cta: CONTINUE ON INSTAGRAM
+- category: principle
+  title: Understanding is not control.
+  summary: Understanding can explain reality. It cannot command reality.
+  instagram: https://www.instagram.com/p/Ddgt-m6iL08ySFg0UeoJcJVdRm4uMMm2yQ8W5A0/
+  cta: CONTINUE ON INSTAGRAM
+- category: principle
+  title: A closed door chosen freely carries surprisingly little grief.
+  summary: Not every possibility is a responsibility. Not every open door needs a yes.
+  instagram: https://www.instagram.com/p/DdgoT5BiMmpsejWOslGP8rGuxlRkV5UePEion40/
+  cta: CONTINUE ON INSTAGRAM
+- category: principle
+  title: Do not carry somebody else's problem.
+  summary: Understanding someone does not oblige you to carry what belongs to them.
+  instagram: https://www.instagram.com/p/DdgiImGiN-Wt6b3KbiSm2xLKPkxYxHv-ZY_S340/
+  cta: CONTINUE ON INSTAGRAM
+- category: observation
+  title: The pattern was visible long before I understood it.
+  summary: Mount Athos. A mountain casting its own triangular shadow across the landscape.
+  instagram: https://www.instagram.com/p/DdglC6UCN1FeBLbcRHM7w7yhLtUwjPEmVh2dA00/
+  cta: VIEW OBSERVATION
+- category: observation
+  title: Nature seems remarkably unconcerned with certainty.
+  summary: A tree found a path through stone. The roots moved before the guarantee arrived.
+  instagram: https://www.instagram.com/p/DdglC6UCN1FeBLbcRHM7w7yhLtUwjPEmVh2dA00/
+  cta: VIEW OBSERVATION
+- category: framework
+  title: The Modern Dharma Triangle
+  summary: Fitness, Purpose, and Consciousness as three dimensions of a life lived fully.
+  instagram: https://www.instagram.com/p/Ddghlw-iJHjIXBdlshKemuQ9IgEeu47IVdZktw0/
+  cta: EXPLORE FRAMEWORK
+  visual: triangle
+- category: framework
+  title: Why Modern Dharma?
+  summary: The questions are ancient. The investigation is contemporary.
+  instagram: https://www.instagram.com/p/Ddglxf9COs9clPKYR_bIMRDwqXSf28kbGXuaZw0/
+  cta: EXPLORE FRAMEWORK

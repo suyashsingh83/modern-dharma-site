@@ -1274,3 +1274,9 @@ h1 {
   .journal-tt-purpose { left: 1%; }
   .journal-tt-consciousness { right: -1%; }
 }
+
+
+/* JOURNAL DATA SOURCE
+   Journal cards are rendered by GitHub Pages/Jekyll from _data/journal.yml.
+   Edit the YAML file to add, remove, reorder, or update entries.
+*/
