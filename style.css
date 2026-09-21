@@ -1146,26 +1146,26 @@ h1 {
 .journal-instagram-link {
   display: inline-flex;
   align-items: center;
-  gap: .65rem;
+  gap: .45rem;
   width: fit-content;
-  margin-top: 1.65rem;
+  margin-top: 1.4rem;
   color: var(--gold);
-  font-size: .64rem;
+  font-size: .58rem;
   font-weight: 600;
-  letter-spacing: .15em;
+  letter-spacing: .18em;
   line-height: 1.4;
   text-decoration: none;
   text-transform: uppercase;
   transition: color .22s ease, transform .22s ease;
 }
 .journal-instagram-link span {
-  font-size: .85rem;
+  font-size: .75rem;
   transition: transform .22s ease;
 }
 .journal-instagram-link:hover,
 .journal-instagram-link:focus-visible {
   color: var(--gold-bright, #e0bd61);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 .journal-instagram-link:hover span,
 .journal-instagram-link:focus-visible span {
