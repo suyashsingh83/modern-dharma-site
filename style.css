@@ -118,6 +118,11 @@ h1 {
 }
 .hero-triangle { right: -29vw; bottom: -37vw; }
 
+.hero-emerge{
+  letter-spacing:-0.02em !important;
+}
+
+
 .section {
   min-height: 78vh;
   padding: 10rem 6vw;
