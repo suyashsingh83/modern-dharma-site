@@ -416,7 +416,7 @@ h1 {
   background: var(--black-soft);
   min-height: auto;
   padding-top: 8rem;
-  padding-bottom: 12rem;
+  padding-bottom: 8rem;
 }
 .author-grid {
   display: grid;
@@ -1459,95 +1459,4 @@ h1 {
   }
   .legal-main h1 { margin-bottom: 3rem; }
   .legal-content { padding-top: 2rem; }
-}
-
-/* =========================================================
-   FROM OTHER NOTEBOOKS
-   Doorway from individual reflection to collective inquiry
-   ========================================================= */
-.reader-evidence {
-  min-height: auto;
-  padding-top: 9rem;
-  padding-bottom: 9rem;
-  background:
-    radial-gradient(circle at 18% 78%, rgba(202,163,60,.045), transparent 30%),
-    var(--black);
-  isolation: isolate;
-}
-.reader-evidence-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr);
-  gap: 8vw;
-  align-items: start;
-  position: relative;
-  z-index: 1;
-}
-.reader-evidence-copy {
-  max-width: 650px;
-  padding-top: .4rem;
-}
-.reader-evidence-lead {
-  margin-top: 0;
-  color: var(--ivory) !important;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.7rem, 2.5vw, 2.45rem) !important;
-  line-height: 1.25 !important;
-}
-.reader-evidence-question {
-  display: grid;
-  gap: .35rem;
-  margin: 2.3rem 0 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.35rem, 2.1vw, 2rem) !important;
-  line-height: 1.3 !important;
-}
-.reader-evidence-question span { color: var(--muted); }
-.reader-evidence-question strong {
-  color: var(--ivory);
-  font-weight: 500;
-}
-.reader-evidence-button { margin-top: 2rem; }
-.reader-evidence-note {
-  max-width: 560px;
-  margin: 1.25rem 0 0;
-  color: #777268 !important;
-  font-size: .76rem !important;
-  line-height: 1.65 !important;
-  letter-spacing: .025em;
-}
-.reader-evidence-architecture {
-  position: absolute;
-  right: -25vw;
-  bottom: -38vw;
-  width: 65vw;
-  aspect-ratio: 1;
-  border-left: 1px solid rgba(202,163,60,.13);
-  border-right: 1px solid rgba(202,163,60,.13);
-  transform: rotate(45deg);
-  pointer-events: none;
-  z-index: 0;
-}
-@media (max-width: 900px) {
-  .reader-evidence-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(310px, .9fr);
-    gap: 5vw;
-  }
-}
-@media (max-width: 760px) {
-  .reader-evidence {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-  }
-  .reader-evidence-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  .reader-evidence-copy { padding-top: 0; }
-  .reader-evidence-architecture {
-    width: 105vw;
-    right: -68vw;
-    bottom: -38vw;
-    opacity: .7;
-  }
-  .reader-evidence-button { width: 100%; }
 }
