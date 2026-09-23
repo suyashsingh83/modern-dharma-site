@@ -1670,7 +1670,6 @@ h1 {
    ========================================================= */
 .journal-contribute {
   padding: 10rem 6vw;
-  scroll-margin-top: 2rem;
   position: relative;
   overflow: hidden;
   border-top: 1px solid var(--white-line);
