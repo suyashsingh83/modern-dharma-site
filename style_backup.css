@@ -1463,18 +1463,18 @@ h1 {
 
 /* =========================================================
    FROM OTHER NOTEBOOKS
-   Primary observation doorway for the collective investigation
+   Doorway from individual reflection to collective inquiry
    ========================================================= */
 .reader-evidence {
   min-height: auto;
   padding-top: 9rem;
   padding-bottom: 9rem;
   background:
-    radial-gradient(circle at 16% 84%, rgba(202,163,60,.055), transparent 26%),
+    radial-gradient(circle at 18% 78%, rgba(202,163,60,.045), transparent 30%),
     var(--black);
   isolation: isolate;
 }
-.reader-evidence-intro {
+.reader-evidence-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr);
   gap: 8vw;
@@ -1502,127 +1502,14 @@ h1 {
   line-height: 1.3 !important;
 }
 .reader-evidence-question span { color: var(--muted); }
-.reader-evidence-question strong { color: var(--ivory); font-weight: 500; }
-
-.observation-doorway {
-  width: min(1180px, 100%);
-  margin: 6.5rem auto 0;
-  padding: clamp(2rem, 4.5vw, 4.5rem);
-  position: relative;
-  z-index: 1;
-  border: 1px solid rgba(202,163,60,.28);
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.025), transparent 38%),
-    rgba(17,17,15,.78);
-  box-shadow: 0 26px 65px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.02);
-}
-.observation-doorway::before {
-  content: "△";
-  position: absolute;
-  right: clamp(1.5rem, 4vw, 4rem);
-  top: clamp(1.4rem, 3vw, 3rem);
-  color: rgba(202,163,60,.16);
-  font-family: Georgia, serif;
-  font-size: clamp(4rem, 8vw, 7rem);
-  line-height: 1;
-  pointer-events: none;
-}
-.observation-doorway-header { max-width: 760px; }
-.observation-doorway-header .content-label { margin: 0 0 1.5rem; }
-.observation-doorway h3 {
-  margin: 0;
+.reader-evidence-question strong {
   color: var(--ivory);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2.6rem, 4.8vw, 5rem);
-  font-weight: 500;
-  line-height: .98;
-  letter-spacing: -.025em;
-}
-.observation-doorway-header > p:last-child {
-  max-width: 660px;
-  margin: 1.6rem 0 0;
-  color: var(--muted);
-  font-size: .95rem;
-  line-height: 1.85;
-}
-.observation-prompts {
-  margin: 3.5rem 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
-}
-.observation-prompts li {
-  min-height: 210px;
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.2rem;
-  align-content: start;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: rgba(255,255,255,.008);
-}
-.observation-number {
-  color: var(--gold);
-  font-size: .62rem;
-  font-weight: 600;
-  letter-spacing: .15em;
-}
-.observation-prompts strong {
-  color: var(--ivory);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.35rem, 2vw, 1.9rem);
   font-weight: 500;
 }
-.observation-prompts p {
-  margin: .75rem 0 0;
-  color: var(--muted) !important;
-  font-size: .82rem !important;
-  line-height: 1.7 !important;
-}
-.observation-action {
-  margin-top: 2.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-.reader-evidence-button { min-height: 54px; }
-.observation-action p {
-  margin: 0;
-  color: #777268 !important;
-  font-size: .75rem !important;
-  line-height: 1.55 !important;
-}
-.evidence-flow {
-  width: min(1180px, 100%);
-  margin: 3.5rem auto 0;
-  padding-top: 2.5rem;
-  position: relative;
-  z-index: 1;
-  border-top: 1px solid var(--line);
-}
-.evidence-flow > .content-label { margin: 0 0 1.5rem; }
-.evidence-flow-steps {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  color: var(--ivory);
-  font-size: .66rem;
-  font-weight: 600;
-  letter-spacing: .15em;
-}
-.evidence-flow-steps i {
-  color: rgba(202,163,60,.55);
-  font-style: normal;
-}
+.reader-evidence-button { margin-top: 2rem; }
 .reader-evidence-note {
-  max-width: 760px;
-  margin: 1.4rem 0 0;
+  max-width: 560px;
+  margin: 1.25rem 0 0;
   color: #777268 !important;
   font-size: .76rem !important;
   line-height: 1.65 !important;
@@ -1641,25 +1528,26 @@ h1 {
   z-index: 0;
 }
 @media (max-width: 900px) {
-  .reader-evidence-intro {
-    grid-template-columns: minmax(0,1fr) minmax(310px,.9fr);
+  .reader-evidence-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(310px, .9fr);
     gap: 5vw;
   }
-  .observation-prompts li { padding: 1.6rem; }
 }
 @media (max-width: 760px) {
-  .reader-evidence { padding-top: 7rem; padding-bottom: 7rem; }
-  .reader-evidence-intro { grid-template-columns: 1fr; gap: 2.5rem; }
+  .reader-evidence {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  .reader-evidence-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
   .reader-evidence-copy { padding-top: 0; }
-  .observation-doorway { margin-top: 4.5rem; padding: 2rem 1.35rem; }
-  .observation-doorway::before { font-size: 4rem; opacity: .7; }
-  .observation-prompts { grid-template-columns: 1fr; }
-  .observation-prompts li { min-height: auto; padding: 1.6rem 1.3rem; }
-  .observation-action { align-items: stretch; }
+  .reader-evidence-architecture {
+    width: 105vw;
+    right: -68vw;
+    bottom: -38vw;
+    opacity: .7;
+  }
   .reader-evidence-button { width: 100%; }
-  .observation-action p { width: 100%; }
-  .evidence-flow-steps { display: grid; grid-template-columns: 1fr auto; gap: .8rem; }
-  .evidence-flow-steps i { transform: rotate(90deg); justify-self: center; }
-  .evidence-flow-steps span:last-child { grid-column: 1 / -1; }
-  .reader-evidence-architecture { width: 105vw; right: -68vw; bottom: -38vw; opacity: .7; }
 }
