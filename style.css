@@ -956,7 +956,7 @@ h1 {
   text-transform: uppercase;
 }
 .journal-method span { color: var(--gold); margin: 0 .55rem; }
-.journal-main { border-top: 1px solid var(--white-line); }
+.journal-main { border-top: 0; }
 .journal-section {
   padding: 9rem 6vw;
   position: relative;
@@ -1670,6 +1670,7 @@ h1 {
    ========================================================= */
 .journal-contribute {
   padding: 10rem 6vw;
+  scroll-margin-top: 2rem;
   position: relative;
   overflow: hidden;
   border-top: 1px solid var(--white-line);
