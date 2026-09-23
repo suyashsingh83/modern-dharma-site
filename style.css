@@ -2057,3 +2057,170 @@ h1 {
   .other-notebooks-flow-steps i { transform: rotate(90deg); justify-self: center; }
   .other-notebooks-flow-steps span:last-child { grid-column: 1 / -1; }
 }
+
+/* =========================================================
+   FROM OTHER NOTEBOOKS - MOBILE CORRECTIONS
+   ========================================================= */
+@media (max-width: 760px) {
+  .other-notebooks-page {
+    overflow-x: hidden;
+  }
+
+  .other-notebooks-header {
+    min-height: 70px;
+    padding: 0 1.1rem;
+    gap: .9rem;
+  }
+
+  .other-notebooks-header .brand {
+    flex: 0 0 auto;
+    font-size: .62rem;
+    letter-spacing: .14em;
+    white-space: nowrap;
+  }
+
+  .other-notebooks-back {
+    margin-left: auto;
+    max-width: 12rem;
+    font-size: .52rem;
+    line-height: 1.35;
+    letter-spacing: .09em;
+    text-align: right;
+    white-space: normal;
+  }
+
+  .other-notebooks-hero {
+    padding: 4.75rem 1.25rem 4.5rem;
+  }
+
+  .other-notebooks-hero .section-label {
+    margin-bottom: 3rem;
+    font-size: .58rem;
+    letter-spacing: .14em;
+  }
+
+  .other-notebooks-hero-grid {
+    display: block;
+  }
+
+  .other-notebooks-hero h1 {
+    max-width: 100%;
+    font-size: clamp(3.7rem, 18vw, 5.2rem);
+    line-height: .88;
+    letter-spacing: -.045em;
+    overflow-wrap: normal;
+  }
+
+  .other-notebooks-intro {
+    margin-top: 3.25rem;
+    max-width: 100%;
+  }
+
+  .other-notebooks-lead {
+    font-size: clamp(1.65rem, 8vw, 2.25rem) !important;
+    line-height: 1.18 !important;
+  }
+
+  .other-notebooks-intro > p:not(.other-notebooks-lead) {
+    font-size: .94rem;
+    line-height: 1.75;
+  }
+
+  .anonymous-promise {
+    margin-top: 2rem;
+    grid-template-columns: 1fr;
+    gap: .75rem;
+  }
+
+  .anonymous-promise strong {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.35;
+  }
+
+  .anonymous-promise p {
+    font-size: .8rem;
+  }
+
+  .embedded-observation-section {
+    padding: 4.5rem 0 0;
+  }
+
+  .embedded-observation-heading {
+    width: auto;
+    margin: 0 1.25rem 2.5rem;
+    padding: 0;
+  }
+
+  .embedded-observation-heading h2 {
+    font-size: clamp(2.7rem, 13vw, 4rem);
+    line-height: .98;
+  }
+
+  .embedded-observation-heading > p:last-child {
+    font-size: .9rem;
+  }
+
+  .airtable-frame-wrap {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .airtable-embed {
+    width: 100%;
+    height: 1280px;
+    min-height: 1280px;
+    border: 0;
+  }
+
+  .airtable-fallback {
+    width: auto;
+    margin: 1.25rem;
+    font-size: .72rem;
+  }
+
+  .other-notebooks-flow {
+    padding: 4.5rem 1.25rem 5.5rem;
+  }
+
+  .other-notebooks-flow-steps {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    flex-wrap: wrap;
+    font-size: .58rem;
+    line-height: 1.6;
+    letter-spacing: .11em;
+  }
+
+  .other-notebooks-flow-steps i {
+    transform: none;
+  }
+
+  .other-notebooks-flow-steps span:last-child {
+    grid-column: auto;
+  }
+
+  .other-notebooks-flow > p:last-child {
+    font-size: .76rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 390px) {
+  .other-notebooks-header .brand {
+    font-size: .56rem;
+  }
+
+  .other-notebooks-back {
+    max-width: 9.7rem;
+    font-size: .48rem;
+  }
+
+  .other-notebooks-hero h1 {
+    font-size: clamp(3.35rem, 17.4vw, 4.45rem);
+  }
+}
