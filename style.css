@@ -2224,3 +2224,56 @@ h1 {
     font-size: clamp(3.35rem, 17.4vw, 4.45rem);
   }
 }
+
+/* =========================================================
+   READER REFLECTION - EMBEDDED FILLOUT PAGE
+   ========================================================= */
+.reader-reflection-page { min-height:100vh; background:var(--black); overflow-x:hidden; }
+.reflection-page-header { min-height:92px; padding:0 6vw; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--white-line); }
+.reflection-page-back { color:var(--muted); font-size:.65rem; font-weight:500; letter-spacing:.16em; text-decoration:none; transition:color .2s ease; }
+.reflection-page-back:hover,.reflection-page-back:focus-visible { color:var(--gold); }
+.reflection-page-hero { padding:9rem 6vw 8rem; position:relative; overflow:hidden; isolation:isolate; background:radial-gradient(circle at 82% 20%,rgba(202,163,60,.055),transparent 28%),var(--black); }
+.reflection-page-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(340px,.9fr); gap:8vw; align-items:start; position:relative; z-index:1; }
+.reflection-page-hero h1 { margin:0; max-width:900px; color:var(--ivory); font-family:"Cormorant Garamond",Georgia,serif; font-size:clamp(4rem,7.5vw,7.6rem); font-weight:500; line-height:.9; letter-spacing:-.042em; }
+.reflection-page-copy { max-width:680px; }
+.reflection-page-lead { margin-top:0; color:var(--ivory); font-family:"Cormorant Garamond",Georgia,serif; font-size:clamp(1.7rem,2.7vw,2.7rem); line-height:1.25; }
+.reflection-page-copy>p:not(.reflection-page-lead):not(.reflection-page-meta) { color:var(--muted); font-size:.98rem; line-height:1.85; }
+.reflection-page-meta { margin:2.2rem 0 0; padding-top:1.5rem; border-top:1px solid var(--line); color:var(--gold); font-size:.68rem; font-weight:600; letter-spacing:.16em; }
+.reflection-page-meta span { margin:0 .55rem; color:var(--gold-soft); }
+.reflection-page-architecture { position:absolute; right:-25vw; bottom:-42vw; width:68vw; aspect-ratio:1; border-left:1px solid rgba(202,163,60,.13); border-right:1px solid rgba(202,163,60,.13); transform:rotate(45deg); pointer-events:none; }
+.embedded-reflection-section { padding:7rem 6vw 8rem; border-top:1px solid var(--white-line); background:#0b0b0b; }
+.embedded-reflection-heading { width:min(1180px,100%); margin:0 auto 3rem; }
+.embedded-reflection-heading .content-label { margin:0 0 1.3rem; }
+.embedded-reflection-heading h2 { margin:0; color:var(--ivory); font-family:"Cormorant Garamond",Georgia,serif; font-size:clamp(3rem,5.2vw,5.4rem); font-weight:500; line-height:.96; letter-spacing:-.035em; }
+.fillout-frame-wrap { width:min(1180px,100%); margin:0 auto; overflow:hidden; background:#000; border:1px solid rgba(202,163,60,.18); box-shadow:0 28px 70px rgba(0,0,0,.28); }
+.fillout-embed { display:block; width:100%; border:0; background:#000; }
+.reflection-fillout-embed { min-height:1900px; height:1900px; }
+.fillout-fallback { width:min(1180px,100%); margin:1.1rem auto 0; color:#777268; font-size:.74rem; line-height:1.6; }
+.fillout-fallback a { color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(202,163,60,.35); }
+.reflection-page-footer { display:grid; gap:.7rem; }
+.reflection-page-footer a { color:var(--muted); text-decoration:none; }
+.reflection-page-footer span { color:var(--gold-soft); margin:0 .4rem; }
+@media (max-width:760px) {
+  .reflection-page-header { min-height:70px; padding:0 1.1rem; gap:.8rem; }
+  .reflection-page-header .brand { flex:0 0 auto; font-size:.6rem; letter-spacing:.13em; white-space:nowrap; }
+  .reflection-page-back { margin-left:auto; max-width:12rem; font-size:.5rem; line-height:1.35; letter-spacing:.08em; text-align:right; }
+  .reflection-page-hero { padding:4.75rem 1.25rem 4.5rem; }
+  .reflection-page-hero .section-label { margin-bottom:3rem; font-size:.58rem; letter-spacing:.14em; }
+  .reflection-page-grid { grid-template-columns:1fr; gap:3rem; }
+  .reflection-page-hero h1 { font-size:clamp(3.35rem,15.5vw,4.8rem); line-height:.91; }
+  .reflection-page-lead { font-size:clamp(1.55rem,7.5vw,2.15rem); }
+  .reflection-page-copy>p:not(.reflection-page-lead):not(.reflection-page-meta) { font-size:.94rem; line-height:1.75; }
+  .reflection-page-architecture { width:110vw; right:-72vw; bottom:-35vw; }
+  .embedded-reflection-section { padding:4.5rem 0 0; }
+  .embedded-reflection-heading { width:auto; margin:0 1.25rem 2.5rem; }
+  .embedded-reflection-heading h2 { font-size:clamp(2.7rem,13vw,4rem); }
+  .fillout-frame-wrap { width:100%; border:0; box-shadow:none; }
+  .reflection-fillout-embed { min-height:2150px; height:2150px; }
+  .fillout-fallback { width:auto; margin:1.15rem 1.25rem; font-size:.72rem; }
+}
+@media (max-width:390px) {
+  .reflection-page-header .brand { font-size:.55rem; }
+  .reflection-page-back { max-width:9.7rem; font-size:.47rem; }
+  .reflection-page-hero h1 { font-size:clamp(3.1rem,15vw,4.2rem); }
+}
+
