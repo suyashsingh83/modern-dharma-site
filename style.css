@@ -2277,3 +2277,33 @@ h1 {
   .reflection-page-hero h1 { font-size:clamp(3.1rem,15vw,4.2rem); }
 }
 
+/* Reader Reflection dynamic Fillout embed correction */
+.embedded-reflection-section {
+  padding: 0;
+  border-top: 1px solid var(--white-line);
+  background: #000;
+}
+.fillout-dynamic-wrap {
+  width: 100%;
+  min-height: 500px;
+  margin: 0;
+  background: #000;
+}
+.fillout-dynamic-wrap > div {
+  width: 100%;
+  min-height: 500px;
+}
+.embedded-reflection-section .fillout-fallback {
+  width: min(1180px, calc(100% - 2.5rem));
+  margin: 1rem auto 2rem;
+}
+@media (max-width: 760px) {
+  .embedded-reflection-section { padding: 0; }
+  .fillout-dynamic-wrap,
+  .fillout-dynamic-wrap > div { min-height: 500px; }
+  .embedded-reflection-section .fillout-fallback {
+    width: auto;
+    margin: 1rem 1.25rem 2rem;
+  }
+}
+
