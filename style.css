@@ -2342,3 +2342,26 @@ h1 {
   }
 }
 
+
+
+/* Author section evidence invitation */
+.author-evidence-cue {
+  margin: 1.8rem 0 0;
+}
+.author-evidence-cue a {
+  color: var(--gold);
+  text-decoration: none;
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  line-height: 1.8;
+  transition: color .2s ease, opacity .2s ease, transform .2s ease;
+}
+.author-evidence-cue a:hover,
+.author-evidence-cue a:focus-visible {
+  color: var(--gold-bright, #e0bd61);
+  opacity: 1;
+  transform: translateY(-2px);
+}
