@@ -2365,3 +2365,18 @@ h1 {
   opacity: 1;
   transform: translateY(-2px);
 }
+
+
+/* =========================
+   FILL OUT EMBEDS
+========================= */
+
+[data-fillout-id] {
+    transition: box-shadow 0.3s ease;
+}
+
+[data-fillout-id\]:hover {
+    box-shadow:
+        0 0 0 1px rgba(200,154,75,0.10),
+        0 0 12px rgba(200,154,75,0.05);
+}
