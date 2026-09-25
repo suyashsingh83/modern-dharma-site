@@ -2021,7 +2021,7 @@ h1 {
   border-bottom: 1px solid rgba(202,163,60,.35);
 }
 .other-notebooks-flow {
-  padding: 5rem 6vw 7rem;
+  padding: 2.5rem 6vw 3rem;
   border-top: 1px solid var(--white-line);
 }
 .other-notebooks-flow > * { width: min(1180px,100%); margin-left: auto; margin-right: auto; }
@@ -2038,7 +2038,7 @@ h1 {
 }
 .other-notebooks-flow-steps i { color: rgba(202,163,60,.55); font-style: normal; }
 .other-notebooks-flow > p:last-child {
-  margin-top: 1.4rem;
+  margin-top: 0.8rem;
   color: #777268;
   font-size: .76rem;
   line-height: 1.65;
@@ -2046,11 +2046,11 @@ h1 {
 @media (max-width: 760px) {
   .other-notebooks-header { min-height: 76px; padding: 0 1.35rem; }
   .other-notebooks-back { font-size: .55rem; letter-spacing: .11em; }
-  .other-notebooks-hero { padding: 7rem 1.35rem 6rem; }
+  .other-notebooks-hero { padding: 7rem 1.35rem 2rem; }
   .other-notebooks-hero-grid { grid-template-columns: 1fr; gap: 3rem; }
   .other-notebooks-architecture { width: 110vw; right: -72vw; bottom: -35vw; }
-  .embedded-observation-section { padding: 6rem 1rem; }
-  .embedded-observation-heading { padding: 0 .35rem; }
+  .embedded-observation-section { padding: 4rem 6rv 6rem; }
+  .embedded-observation-heading { padding: 0 1.75rem; }
   .airtable-embed { min-height: 1320px; height: 1320px; }
   .other-notebooks-flow { padding: 4.5rem 1.35rem 6rem; }
   .other-notebooks-flow-steps { display: grid; grid-template-columns: 1fr auto; gap: .8rem; }
@@ -2394,3 +2394,26 @@ h1 {
     line-height: 1.7;
 }
 
+/* ===== OTHER NOTEBOOKS SPACING OVERRIDE ===== */
+
+.other-notebooks-hero {
+    padding: 9rem 6vw 2rem !important;
+}
+
+.other-notebooks-flow {
+    padding: 1rem 6vw 1.5rem !important;
+
+}
+
+.embedded-observation-section {
+    padding: 2.5rem 6vw 6rem !important;
+    border-top: none !important;
+}
+
+.embedded-observation-heading {
+    margin: 0 auto 1.2rem !important;
+}
+
+.other-notebooks-flow > p:last-child {
+    margin-top: .6rem !important;
+}
