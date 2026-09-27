@@ -25,10 +25,17 @@ layout: null
   <link rel="stylesheet" href="../style.css">
   <style>
     .hypothesis-page { background: #0b0b0a; color: #f2eee6; min-height: 100vh; }
+
+    /* Prevent the shared homepage header rule from reserving a full viewport. */
+    .hypothesis-page .site-header {
+      min-height: auto !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
     .hypothesis-main { overflow: hidden; }
     .hypothesis-hero {
-      min-height: 72vh;
-      padding: 10rem 6vw 6rem;
+      min-height: auto;
+      padding: 4.75rem 6vw 4.5rem;
       border-bottom: 1px solid rgba(255,255,255,.12);
       display: grid;
       align-content: center;
@@ -62,7 +69,7 @@ layout: null
       font-weight: 400;
       line-height: .95;
     }
-    .hypothesis-hero h1 { max-width: 900px; font-size: clamp(4rem, 9vw, 8.4rem); }
+    .hypothesis-hero h1 { max-width: 900px; font-size: clamp(3.5rem, 8vw, 7.4rem); }
     .hypothesis-hero h1 span { color: #caa33c; }
     .hypothesis-deck {
       max-width: 690px;
@@ -177,7 +184,7 @@ layout: null
       text-transform: uppercase;
     }
     @media (max-width: 820px) {
-      .hypothesis-hero { padding: 8rem 1.5rem 4.5rem; min-height: 64vh; }
+      .hypothesis-hero { padding: 4rem 1.5rem 3.75rem; min-height: auto; }
       .hypothesis-section { padding: 5rem 1.5rem; }
       .hypothesis-grid { grid-template-columns: 1fr; gap: 2rem; }
       .evidence-streams { grid-template-columns: 1fr; }
