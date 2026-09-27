@@ -1,0 +1,302 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ykgwroq3ix");
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Working Hypothesis | Modern Dharma</title>
+  <meta name="description" content="The working hypothesis behind Modern Dharma: recurring evidence, responsible experiment, and an inquiry that remains open.">
+  <meta property="og:title" content="The Working Hypothesis | Modern Dharma">
+  <meta property="og:description" content="A hypothesis to investigate, not a doctrine to follow.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .hypothesis-page { background: #0b0b0a; color: #f2eee6; min-height: 100vh; }
+    .hypothesis-main { overflow: hidden; }
+    .hypothesis-hero {
+      min-height: 72vh;
+      padding: 10rem 6vw 6rem;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      display: grid;
+      align-content: center;
+      position: relative;
+    }
+    .hypothesis-hero::after {
+      content: "";
+      position: absolute;
+      right: -8vw;
+      bottom: -22vw;
+      width: 52vw;
+      height: 52vw;
+      border: 1px solid rgba(202,163,60,.22);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+    .hypothesis-kicker,
+    .hypothesis-label {
+      margin: 0 0 1.5rem;
+      color: #caa33c;
+      font-family: Inter, sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .hypothesis-hero h1,
+    .hypothesis-section h2 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+      line-height: .95;
+    }
+    .hypothesis-hero h1 { max-width: 900px; font-size: clamp(4rem, 9vw, 8.4rem); }
+    .hypothesis-hero h1 span { color: #caa33c; }
+    .hypothesis-deck {
+      max-width: 690px;
+      margin: 2.25rem 0 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.45rem, 2.3vw, 2.1rem);
+      line-height: 1.3;
+      color: #d9d3c8;
+    }
+    .hypothesis-section {
+      padding: 7rem 6vw;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      position: relative;
+    }
+    .hypothesis-grid {
+      display: grid;
+      grid-template-columns: minmax(250px, .8fr) minmax(320px, 1.2fr);
+      gap: clamp(3rem, 8vw, 9rem);
+      align-items: start;
+    }
+    .hypothesis-section h2 { font-size: clamp(3rem, 6vw, 5.8rem); }
+    .hypothesis-copy { max-width: 760px; }
+    .hypothesis-copy p {
+      margin: 0 0 1.45rem;
+      font-family: Inter, sans-serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #c8c3b9;
+    }
+    .hypothesis-copy .lead {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+      line-height: 1.3;
+      color: #f2eee6;
+    }
+    .hypothesis-copy strong { color: #f2eee6; font-weight: 500; }
+    .evidence-streams {
+      margin: 2.75rem 0 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+    .evidence-stream {
+      padding: 1.65rem 1.25rem 1.65rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .evidence-stream:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.12); }
+    .evidence-stream:nth-child(even) { padding-left: 1.5rem; }
+    .evidence-stream span {
+      display: block;
+      margin-bottom: .5rem;
+      color: #caa33c;
+      font-family: Inter, sans-serif;
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .evidence-stream h3 {
+      margin: 0 0 .55rem;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.85rem;
+      font-weight: 400;
+    }
+    .evidence-stream p { margin: 0; font-size: .9rem; line-height: 1.65; }
+    .journey-line,
+    .network-line {
+      margin-top: 2.75rem;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border-top: 1px solid rgba(255,255,255,.14);
+      border-bottom: 1px solid rgba(255,255,255,.14);
+    }
+    .journey-step,
+    .network-step {
+      min-height: 150px;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid rgba(255,255,255,.14);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .journey-step:last-child,
+    .network-step:last-child { border-right: 0; }
+    .step-number { color: #caa33c; font: 600 .68rem/1 Inter, sans-serif; letter-spacing: .16em; }
+    .journey-step strong,
+    .network-step strong { font: 400 1.65rem/1.1 "Cormorant Garamond", serif; }
+    .journey-step small,
+    .network-step small { margin-top: 1rem; color: #8f8a81; font: 300 .76rem/1.45 Inter, sans-serif; }
+    .network-line { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .network-note {
+      margin-top: 2rem;
+      padding-left: 1.2rem;
+      border-left: 1px solid #caa33c;
+      color: #c8c3b9;
+      font: 300 .95rem/1.75 Inter, sans-serif;
+    }
+    .hypothesis-close { text-align: center; padding: 8rem 6vw; }
+    .hypothesis-close .triangle { color: #caa33c; font-size: 1.5rem; }
+    .hypothesis-close blockquote {
+      max-width: 800px;
+      margin: 2rem auto;
+      font: 400 clamp(2rem, 4vw, 3.5rem)/1.2 "Cormorant Garamond", serif;
+    }
+    .hypothesis-close p { color: #9e988f; font: 300 .9rem/1.7 Inter, sans-serif; }
+    .hypothesis-back {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #caa33c;
+      text-decoration: none;
+      font: 600 .72rem/1 Inter, sans-serif;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 820px) {
+      .hypothesis-hero { padding: 8rem 1.5rem 4.5rem; min-height: 64vh; }
+      .hypothesis-section { padding: 5rem 1.5rem; }
+      .hypothesis-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .evidence-streams { grid-template-columns: 1fr; }
+      .evidence-stream:nth-child(odd) { border-right: 0; }
+      .evidence-stream:nth-child(even) { padding-left: 0; }
+      .journey-line, .network-line { grid-template-columns: 1fr; }
+      .journey-step, .network-step { min-height: 120px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.14); }
+      .journey-step:last-child, .network-step:last-child { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body class="hypothesis-page">
+  <header class="site-header">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="brand" href="../">MODERN DHARMA</a>
+      <div class="nav-links">
+        <a href="../#book">BOOK</a>
+        <a href="../#sample">SAMPLE</a>
+        <a href="../#reflection">REFLECTION</a>
+        <a href="../journal/">JOURNAL</a>
+        <a href="../#author">AUTHOR</a>
+        <a href="../#reader-evidence">EVIDENCE</a>
+        <span class="sep">|</span>
+        <a class="inquiry-trigger" href="./" aria-current="page"><span aria-hidden="true">△</span> AN ONGOING INQUIRY</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="hypothesis-main">
+    <section class="hypothesis-hero">
+      <p class="hypothesis-kicker"><span aria-hidden="true">△</span> THE WORKING HYPOTHESIS</p>
+      <h1>A hypothesis to investigate.<br><span>Not a doctrine to follow.</span></h1>
+      <p class="hypothesis-deck">Modern Dharma is built around a simple possibility: recurring patterns in a life may contain useful evidence of svadharma.</p>
+    </section>
+
+    <section class="hypothesis-section">
+      <p class="hypothesis-label">01 / CORE HYPOTHESIS</p>
+      <div class="hypothesis-grid">
+        <h2>Life may leave<br>recurring evidence.</h2>
+        <div class="hypothesis-copy">
+          <p class="lead">Human lives may contain recurring patterns of attention, vitality, capability, concern, responsibility, and contribution.</p>
+          <p>Modern Dharma treats these patterns as <strong>provisional evidence of svadharma</strong>: a characteristic way in which a life may seek expression.</p>
+          <p>The pattern is not assumed to be singular. It is not treated as destiny. It may be partly discovered, partly developed, and partly shaped through participation with circumstances.</p>
+          <p>Recognition is only the beginning. A recurring pattern becomes more credible when it is tested responsibly, remains open to contrary evidence, respects the equal legitimacy of other lives, and survives contact with reality.</p>
+          <p><strong>The promise is not certainty or guaranteed success. It is a more honest participation in life.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hypothesis-section">
+      <p class="hypothesis-label">02 / EVIDENCE STREAMS</p>
+      <div class="hypothesis-grid">
+        <h2>What might<br>count as evidence?</h2>
+        <div class="hypothesis-copy">
+          <p>No single moment proves a path. Stronger interpretations are supported by several forms of evidence appearing across time and context.</p>
+          <div class="evidence-streams">
+            <article class="evidence-stream"><span>01</span><h3>Vitality</h3><p>Durable energy, absorption, or engagement, rather than a brief emotional high.</p></article>
+            <article class="evidence-stream"><span>02</span><h3>Integrity</h3><p>A responsibility may be costly and still feel honestly yours to carry.</p></article>
+            <article class="evidence-stream"><span>03</span><h3>Capability</h3><p>A useful capacity recurs across different roles, settings, or relationships.</p></article>
+            <article class="evidence-stream"><span>04</span><h3>Concern</h3><p>A question, injustice, or human need repeatedly claims attention.</p></article>
+            <article class="evidence-stream"><span>05</span><h3>Contribution</h3><p>Other people or systems repeatedly benefit from a characteristic form of participation.</p></article>
+            <article class="evidence-stream"><span>06</span><h3>Return</h3><p>The pattern reappears after reward, status, praise, or one particular container disappears.</p></article>
+          </div>
+          <p class="network-note"><strong>Important:</strong> repetition may also reflect conditioning, trauma, compulsion, social expectation, or necessity. Evidence must be interpreted, not merely collected.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hypothesis-section">
+      <p class="hypothesis-label">03 / THE JOURNEY</p>
+      <div class="hypothesis-grid">
+        <h2>Recognition is<br>not the end.</h2>
+        <div class="hypothesis-copy">
+          <p class="lead">Evidence may become sufficient for an experiment long before it becomes sufficient for certainty.</p>
+          <p>The inquiry therefore moves through a living cycle rather than a fixed ladder.</p>
+        </div>
+      </div>
+      <div class="journey-line" aria-label="The Modern Dharma journey">
+        <div class="journey-step"><span class="step-number">01</span><strong>Recognise</strong><small>What keeps showing up?</small></div>
+        <div class="journey-step"><span class="step-number">02</span><strong>Interpret</strong><small>What else could explain it?</small></div>
+        <div class="journey-step"><span class="step-number">03</span><strong>Trust</strong><small>Have I seen enough to test this?</small></div>
+        <div class="journey-step"><span class="step-number">04</span><strong>Experiment</strong><small>What responsible step could reality answer?</small></div>
+        <div class="journey-step"><span class="step-number">05</span><strong>Revise</strong><small>What does the outcome change?</small></div>
+      </div>
+    </section>
+
+    <section class="hypothesis-section">
+      <p class="hypothesis-label">04 / A GLIMPSE AHEAD</p>
+      <div class="hypothesis-grid">
+        <h2>The evidence<br>can keep living.</h2>
+        <div class="hypothesis-copy">
+          <p class="lead">Modern Dharma is slowly evolving toward a Living Evidence Network.</p>
+          <p>The idea is simple: observations become possible patterns; patterns invite responsible experiments; outcomes return new evidence.</p>
+          <p>The network is not designed to prove the hypothesis correct. It must be capable of strengthening, weakening, reframing, or abandoning an interpretation.</p>
+        </div>
+      </div>
+      <div class="network-line" aria-label="Living Evidence Network preview">
+        <div class="network-step"><span class="step-number">01</span><strong>Observation</strong><small>Something happened.</small></div>
+        <div class="network-step"><span class="step-number">02</span><strong>Pattern</strong><small>Something may be recurring.</small></div>
+        <div class="network-step"><span class="step-number">03</span><strong>Experiment</strong><small>A responsible test is attempted.</small></div>
+        <div class="network-step"><span class="step-number">04</span><strong>New Evidence</strong><small>Reality answers.</small></div>
+      </div>
+      <p class="network-note">This network remains a prototype. The investigation is still learning how it should be built.</p>
+    </section>
+
+    <section class="hypothesis-close">
+      <div class="triangle" aria-hidden="true">△</div>
+      <blockquote>The purpose is not to defend the hypothesis.<br>The purpose is to keep investigating it.</blockquote>
+      <p>New evidence may strengthen the hypothesis. New evidence may change it.<br>Both outcomes are acceptable.</p>
+      <a class="hypothesis-back" href="../">← RETURN TO THE READING ROOM</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-triangle" aria-hidden="true">△</div>
+    <p class="footer-brand">MODERN DHARMA</p>
+    <p class="footer-themes">Recognition <span>•</span> Trust <span>•</span> Participation</p>
+    <p class="footer-links"><a href="../privacy.html">Privacy</a><span aria-hidden="true">•</span><a href="../cookies.html">Cookies</a></p>
+    <p class="copyright">© 2026 Suyash Pratap Singh</p>
+  </footer>
+</body>
+</html>
