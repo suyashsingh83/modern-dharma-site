@@ -32,30 +32,110 @@ layout: null
   <link rel="stylesheet" href="style.css">
 
   <style>
+    .nav-links .inquiry-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: .42rem;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #f2eee6;
+      cursor: pointer;
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+    }
+    .nav-links .inquiry-trigger span { color: #caa33c; }
+    .inquiry-easter-egg {
+      position: absolute;
+      top: 118px;
+      right: 10vw;
+      z-index: 30;
+      width: min(360px, calc(100vw - 3rem));
+      text-align: right;
+      pointer-events: none;
+    }
+    .inquiry-reveal {
+      max-height: 0;
+      overflow: hidden;
+      pointer-events: none;
+      transition: max-height .35s ease;
+    }
+    .inquiry-reveal.active {
+      max-height: 190px;
+      pointer-events: auto;
+    }
+    .inquiry-line,
+    .inquiry-reveal-link {
+      opacity: 0;
+      transform: translateY(7px);
+    }
+    .inquiry-reveal.active .inquiry-line-one {
+      animation: inquiryReveal .7s ease .15s forwards;
+    }
+    .inquiry-reveal.active .inquiry-line-two {
+      animation: inquiryReveal .7s ease 1.05s forwards;
+    }
+    .inquiry-reveal.active .inquiry-line-three {
+      animation: inquiryReveal .7s ease 2.15s forwards;
+    }
+    .inquiry-line {
+      margin: 0;
+      color: #c7bda9;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      letter-spacing: .08em;
+    }
+    .inquiry-line-two { margin-top: .12rem; }
     .inquiry-reveal-link {
       display: inline-block;
-      margin-top: .75rem;
-      color: var(--gold, #caa33c);
+      margin-top: .8rem;
+      color: #caa33c;
       text-decoration: none;
-      font-size: .68rem;
+      font-family: Inter, sans-serif;
+      font-size: .64rem;
       font-weight: 600;
-      letter-spacing: .16em;
+      letter-spacing: .14em;
       text-transform: uppercase;
     }
     .inquiry-reveal-link:hover,
-    .inquiry-reveal-link:focus-visible { color: var(--ivory, #f2eee6); }
+    .inquiry-reveal-link:focus-visible { color: #f2eee6; }
+    @keyframes inquiryReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .inquiry-reveal.active .inquiry-line,
+      .inquiry-reveal.active .inquiry-reveal-link {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+    @media (max-width: 760px) {
+      .inquiry-easter-egg {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: auto;
+        padding: .2rem 1.25rem .7rem;
+      }
+    }
   </style>
 </head>
 <body>
   <header class="site-header">
     <nav class="topbar" aria-label="Main navigation">
       <a class="brand" href="#top">MODERN DHARMA</a>
-      <div class="nav-links"><a href="#book">BOOK</a><a href="#sample">SAMPLE</a><a href="#reflection">REFLECTION</a><a href="journal/">JOURNAL</a><a href="#author">AUTHOR</a><a href="#reader-evidence">EVIDENCE</a><span class="sep">|</span><button class="inquiry-trigger" type="button" aria-expanded="false" aria-controls="inquiry-reveal"><span aria-hidden="true">△</span> AN ONGOING INQUIRY</button>
-        <div class="inquiry-reveal" id="inquiry-reveal">
-          <p>The questions are ancient.<br>The investigation is contemporary.</p>
-          <a class="inquiry-reveal-link" href="inquiry/">READ THE WORKING HYPOTHESIS <span aria-hidden="true">→</span></a>
-        </div></div>
+      <div class="nav-links"><a href="#book">BOOK</a><a href="#sample">SAMPLE</a><a href="#reflection">REFLECTION</a><a href="journal/">JOURNAL</a><a href="#author">AUTHOR</a><a href="#reader-evidence">EVIDENCE</a><span class="sep">|</span><button class="inquiry-trigger" type="button" aria-expanded="false" aria-controls="inquiry-reveal"><span aria-hidden="true">△</span> AN ONGOING INQUIRY</button></div>
     </nav>
+    <div class="inquiry-easter-egg">
+      <div class="inquiry-reveal" id="inquiry-reveal" aria-hidden="true">
+        <p class="inquiry-line inquiry-line-one">The questions are ancient.</p>
+        <p class="inquiry-line inquiry-line-two">The investigation is contemporary.</p>
+        <a class="inquiry-reveal-link inquiry-line-three" href="inquiry/">READ THE WORKING HYPOTHESIS <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
 <section class="hero" id="top">
       <div class="hero-triangle" aria-hidden="true"></div>
       <div class="hero-content">
@@ -323,9 +403,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const trigger = document.querySelector(".inquiry-trigger");
   const reveal = document.querySelector(".inquiry-reveal");
   if (!trigger || !reveal) return;
+
   trigger.addEventListener("click", () => {
-    const active = reveal.classList.toggle("active");
-    trigger.setAttribute("aria-expanded", String(active));
+    const opening = !reveal.classList.contains("active");
+
+    if (opening) {
+      reveal.classList.remove("active");
+      void reveal.offsetWidth;
+      reveal.classList.add("active");
+    } else {
+      reveal.classList.remove("active");
+    }
+
+    trigger.setAttribute("aria-expanded", String(opening));
+    reveal.setAttribute("aria-hidden", String(!opening));
   });
 });
 </script>
