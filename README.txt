@@ -1,20 +1,22 @@
-MODERN DHARMA - KINDLE LINK UPDATE
+MODERN DHARMA - CORRECTED KINDLE LINK PACKAGE
 
 FILES
-- index.html: Updated Book section with a conditional Kindle CTA.
-- style.css: Existing CSS plus the new .book-cta styles.
-- _data/book.yml: Single source of truth for the Amazon URLs and availability text.
+- index.html
+- style.css
+- _data/book.yml
 
-TO ACTIVATE THE KINDLE LINK
-1. Open _data/book.yml.
-2. Paste the live Amazon Kindle URL into amazon_kindle_url.
-   Example:
-   amazon_kindle_url: "https://www.amazon.com/dp/XXXXXXXXXX"
-3. Change release_note when the Kindle edition is live, for example:
-   release_note: "KINDLE EDITION AVAILABLE NOW"
-4. Commit and deploy.
+WHAT WAS FIXED
+1. Restored the missing opening <a> tag.
+2. The Amazon URL is now used only as the href and is not displayed as text.
+3. The visible label is rendered in the existing Modern Dharma gold micro-navigation style.
+4. The link opens in a new tab with rel="noopener noreferrer".
+5. book.yml is correctly placed inside the _data folder.
 
-If amazon_kindle_url is empty, the Kindle CTA remains hidden and the site continues to show the release note.
+DEPLOYMENT
+Copy all three included paths into the repository root, preserving `_data/book.yml`.
 
-FUTURE PAPERBACK
-The YAML already includes amazon_paperback_url for the later paperback release. It is not rendered yet, so no extra button appears before that implementation is added.
+For the temporary test, the current URL is:
+https://www.amazon.de
+
+When the Kindle listing is live, replace it in `_data/book.yml` with the direct ASIN URL, for example:
+https://www.amazon.de/dp/B0XXXXXXXX

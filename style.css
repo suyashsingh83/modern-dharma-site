@@ -2458,3 +2458,36 @@ h1 {
 .book-cta a:focus-visible {
   opacity: .85;
 }
+
+/* =========================================================
+   KINDLE LINK - MODERN DHARMA MICRO-NAVIGATION
+   ========================================================= */
+.book-cta {
+  margin: 1.35rem 0 0 !important;
+}
+
+.section .book-cta a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--gold) !important;
+  text-decoration: none !important;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.64rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.section .book-cta a:hover,
+.section .book-cta a:focus-visible {
+  color: var(--gold-bright, #e0bd61) !important;
+  opacity: 1;
+}
+
+.section .book-cta a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 0.4rem;
+}

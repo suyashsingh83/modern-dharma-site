@@ -210,7 +210,7 @@ Together they continue the investigation.
 
 {% if site.data.book.amazon_kindle_url and site.data.book.amazon_kindle_url != "" %}
 <p class="book-cta">
-  {{ site.data.book.amazon_kindle_url }}
+  <a href="{{ site.data.book.amazon_kindle_url }}" target="_blank" rel="noopener noreferrer">
     {{ site.data.book.kindle_cta_label | default: "△ READ ON KINDLE →" }}
   </a>
 </p>
