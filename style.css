@@ -2444,34 +2444,17 @@ h1 {
 }
 
 
-/* =========================================================
-   BOOK AVAILABILITY CTA
-   URL and label are managed in _data/book.yml
-   ========================================================= */
-.book-cta {
-  margin: 1.25rem 0 0;
-}
-
+/* Modern Dharma micro-navigation style Kindle link */
 .book-cta a {
-  display: inline-flex;
-  align-items: center;
-  color: var(--gold);
-  text-decoration: none;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  line-height: 1.4;
+  color: var(--gold) !important;
+  text-decoration: none !important;
   text-transform: uppercase;
-  transition: color 0.2s ease, transform 0.2s ease;
+  letter-spacing: .18em;
+  font-size: .72rem;
+  font-weight: 600;
+  display: inline-block;
 }
-
 .book-cta a:hover,
 .book-cta a:focus-visible {
-  color: var(--gold-bright, #e0bd61);
-  transform: translateX(0.18rem);
-}
-
-.book-cta a:focus-visible {
-  outline: 1px solid currentColor;
-  outline-offset: 0.35rem;
+  opacity: .85;
 }
