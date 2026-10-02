@@ -1,0 +1,839 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Modern Dharma, an independent publishing and inquiry studio exploring recurring questions through books, journals and reader evidence.">
+  <title>About Modern Dharma</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #0b0b0b;
+      --ink-soft: #151410;
+      --ivory: #f3eee2;
+      --paper: #faf7f0;
+      --muted: #a9a397;
+      --muted-dark: #6d685f;
+      --gold: #caa33c;
+      --gold-bright: #e0bd61;
+      --line-dark: rgba(202, 163, 60, .28);
+      --line-light: rgba(89, 69, 24, .22);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ink);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ivory);
+      background: var(--ink);
+      font-family: Inter, Arial, sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 72% 36%, rgba(202,163,60,.10), transparent 27%),
+        linear-gradient(135deg, #090909 0%, #11100d 58%, #090909 100%);
+      border-bottom: 1px solid var(--line-dark);
+    }
+
+    .site-header::before,
+    .site-header::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .site-header::before {
+      width: 520px;
+      height: 520px;
+      right: -165px;
+      top: 110px;
+      border: 1px solid rgba(202,163,60,.16);
+      transform: rotate(45deg);
+    }
+
+    .site-header::after {
+      width: 210px;
+      height: 210px;
+      right: 15vw;
+      bottom: -120px;
+      border-left: 1px solid rgba(202,163,60,.25);
+      border-top: 1px solid rgba(202,163,60,.25);
+      transform: rotate(45deg);
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 2;
+      width: min(var(--max), calc(100% - 12vw));
+      min-height: 92px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .brand {
+      color: var(--ivory);
+      text-decoration: none;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.1rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .brand span { color: var(--gold); margin-right: .5rem; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.7rem;
+    }
+
+    .nav-links a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: .64rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      opacity: .85;
+      transition: opacity .2s ease, color .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold-bright);
+      opacity: 1;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), calc(100% - 12vw));
+      min-height: calc(100vh - 92px);
+      margin: 0 auto;
+      padding: 11vh 0 9vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+      gap: clamp(3rem, 8vw, 9rem);
+      align-items: center;
+    }
+
+    .eyebrow,
+    .section-label,
+    .pillar-number {
+      margin: 0;
+      color: var(--gold);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow span,
+    .section-label span { margin-right: .65rem; }
+
+    .hero h1 {
+      max-width: 850px;
+      margin: 1.4rem 0 1.25rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(4.2rem, 9vw, 8.9rem);
+      font-weight: 400;
+      line-height: .82;
+      letter-spacing: -.045em;
+    }
+
+    .hero h1 em {
+      display: block;
+      color: var(--gold-bright);
+      font-weight: 400;
+    }
+
+    .hero-lead {
+      max-width: 680px;
+      margin: 0;
+      color: #d8d2c6;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.35rem, 2.25vw, 2rem);
+      line-height: 1.35;
+    }
+
+    .hero-note {
+      align-self: end;
+      padding: 1.7rem 0 0 1.6rem;
+      border-left: 1px solid var(--gold);
+    }
+
+    .hero-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .hero-note strong {
+      display: block;
+      margin-bottom: .55rem;
+      color: var(--ivory);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+    }
+
+    .section {
+      position: relative;
+      padding: clamp(5.5rem, 10vw, 9rem) 6vw;
+    }
+
+    .section-inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+    }
+
+    .section-dark {
+      color: var(--ivory);
+      background: var(--ink);
+    }
+
+    .section-light {
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    .section-gold {
+      color: #241b08;
+      background: var(--gold);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(250px, .72fr) minmax(0, 1.28fr);
+      gap: clamp(3rem, 8vw, 9rem);
+      align-items: start;
+    }
+
+    .section h2 {
+      margin: 1.25rem 0 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.9rem, 6vw, 5.8rem);
+      font-weight: 400;
+      line-height: .95;
+      letter-spacing: -.03em;
+    }
+
+    .section-copy {
+      max-width: 710px;
+    }
+
+    .section-copy p {
+      margin: 0 0 1.3rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.16rem, 1.65vw, 1.42rem);
+      line-height: 1.58;
+    }
+
+    .section-dark .section-copy p { color: #d9d3c7; }
+    .section-light .section-copy p { color: #39352e; }
+
+    .not-list {
+      margin: 2.2rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: .35rem;
+    }
+
+    .not-list li {
+      color: var(--gold);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .questions {
+      margin: 2.4rem 0 0;
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line-light);
+    }
+
+    .question {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--line-light);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.16rem, 1.8vw, 1.55rem);
+      line-height: 1.3;
+    }
+
+    .question span {
+      color: var(--gold);
+      font-family: Inter, Arial, sans-serif;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+    }
+
+    .method-flow {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      border-top: 1px solid rgba(255,255,255,.16);
+      border-bottom: 1px solid rgba(255,255,255,.16);
+    }
+
+    .method-step {
+      position: relative;
+      min-height: 150px;
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+
+    .method-step:last-child { border-right: 0; }
+
+    .method-step::after {
+      content: "→";
+      position: absolute;
+      top: 50%;
+      right: -.38rem;
+      z-index: 1;
+      color: var(--gold-bright);
+      background: var(--ink);
+      transform: translateY(-50%);
+    }
+
+    .method-step:last-child::after { display: none; }
+
+    .method-step span {
+      color: var(--gold);
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+    }
+
+    .method-step strong {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .pillars {
+      margin-top: 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line-light);
+      border-left: 1px solid var(--line-light);
+    }
+
+    .pillar {
+      min-height: 310px;
+      padding: clamp(1.8rem, 4vw, 3rem);
+      border-right: 1px solid var(--line-light);
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .pillar h3 {
+      margin: 2.1rem 0 .85rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .pillar p {
+      max-width: 470px;
+      margin: 0;
+      color: #514c43;
+      font-size: .92rem;
+      line-height: 1.75;
+    }
+
+    .pillar-note {
+      margin-top: 1.5rem !important;
+      color: #6b5014 !important;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.16rem !important;
+      font-style: italic;
+    }
+
+    .studio-grid {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      gap: clamp(3rem, 7vw, 7rem);
+    }
+
+    .studio-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line-dark);
+      border-left: 1px solid var(--line-dark);
+    }
+
+    .studio-list div {
+      padding: 1rem 1.15rem;
+      color: #d8d2c6;
+      border-right: 1px solid var(--line-dark);
+      border-bottom: 1px solid var(--line-dark);
+      font-size: .82rem;
+      letter-spacing: .05em;
+    }
+
+    .studio-statement {
+      padding-left: 1.6rem;
+      border-left: 1px solid var(--gold);
+    }
+
+    .studio-statement p {
+      margin: 0 0 1.2rem;
+      color: var(--muted);
+    }
+
+    .studio-statement strong {
+      display: block;
+      color: var(--gold-bright);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr);
+      gap: clamp(3rem, 8vw, 8rem);
+      align-items: end;
+    }
+
+    .founder-name {
+      margin: 0 0 1.2rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .founder-role {
+      margin: 0;
+      color: #715417;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .reader-invitation {
+      text-align: center;
+      background:
+        linear-gradient(rgba(11,11,11,.94), rgba(11,11,11,.97)),
+        radial-gradient(circle at center, rgba(202,163,60,.16), transparent 44%);
+    }
+
+    .reader-invitation h2 {
+      max-width: 900px;
+      margin: 1.4rem auto 1.5rem;
+    }
+
+    .reader-invitation .invitation-copy {
+      max-width: 740px;
+      margin: 0 auto;
+      color: #d3cdc1;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+      line-height: 1.55;
+    }
+
+    .micro-links {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem 2.4rem;
+      flex-wrap: wrap;
+    }
+
+    .micro-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: .64rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      opacity: .9;
+    }
+
+    .micro-links a:hover,
+    .micro-links a:focus-visible {
+      color: var(--gold-bright);
+      opacity: 1;
+    }
+
+    .closing {
+      padding: clamp(6rem, 11vw, 10rem) 6vw;
+      color: #251c08;
+      background: var(--gold);
+      text-align: center;
+    }
+
+    .closing blockquote {
+      max-width: 800px;
+      margin: 0 auto;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.3rem, 5vw, 5rem);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .closing blockquote em {
+      display: block;
+      font-weight: 400;
+    }
+
+    .closing .triangle {
+      margin-top: 3rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2rem;
+    }
+
+    .site-footer {
+      padding: 2.3rem 6vw;
+      color: var(--muted-dark);
+      background: var(--paper);
+      border-top: 1px solid var(--line-light);
+    }
+
+    .footer-inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .site-footer p {
+      margin: 0;
+      font-size: .65rem;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .site-footer a {
+      color: #6a4d10;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 880px) {
+      .hero,
+      .split,
+      .studio-grid,
+      .founder-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 9rem 0 6rem;
+      }
+
+      .hero-note { max-width: 520px; }
+
+      .method-flow {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .method-step:nth-child(3) { border-right: 0; }
+      .method-step:nth-child(3)::after { display: none; }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        width: calc(100% - 2.7rem);
+        min-height: 76px;
+      }
+
+      .nav-links { gap: 1rem; }
+      .nav-links a:not(:last-child) { display: none; }
+
+      .hero {
+        width: calc(100% - 2.7rem);
+        padding: 6.5rem 0 5.5rem;
+      }
+
+      .hero h1 { font-size: clamp(3.7rem, 20vw, 5.8rem); }
+
+      .section { padding: 5.5rem 1.35rem; }
+
+      .pillars,
+      .studio-list {
+        grid-template-columns: 1fr;
+      }
+
+      .method-flow {
+        grid-template-columns: 1fr;
+        border: 0;
+      }
+
+      .method-step {
+        min-height: 100px;
+        border-right: 0;
+        border-top: 1px solid rgba(255,255,255,.15);
+      }
+
+      .method-step::after {
+        content: "↓";
+        top: auto;
+        right: 50%;
+        bottom: -.73rem;
+        transform: translateX(50%);
+      }
+
+      .method-step:nth-child(3)::after { display: block; }
+      .method-step:last-child::after { display: none; }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body class="about-page">
+  <header class="site-header">
+    <nav class="topbar" aria-label="Primary navigation">
+      <a class="brand" href="../"><span aria-hidden="true">△</span> Modern Dharma</a>
+      <div class="nav-links">
+        <a href="../#book">Book</a>
+        <a href="../journal/">Journal</a>
+        <a href="../">Reading Room</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <p class="eyebrow"><span aria-hidden="true">△</span> About Modern Dharma</p>
+        <h1>A living<br><em>investigation.</em></h1>
+        <p class="hero-lead">Modern Dharma explores questions about work, purpose, relationships, creativity, responsibility and conscious living through books, journals and ongoing inquiry.</p>
+      </div>
+
+      <aside class="hero-note">
+        <strong>An independent publishing and inquiry studio.</strong>
+        <p>Based in Luxembourg. Built around questions that remain alive long after the first answer.</p>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section-light" id="why">
+      <div class="section-inner split">
+        <div>
+          <p class="section-label"><span aria-hidden="true">△</span> 01 / WHY IT EXISTS</p>
+          <h2>Some questions return.</h2>
+        </div>
+
+        <div class="section-copy">
+          <p>Modern Dharma began with a simple observation: some questions do not disappear when they are answered.</p>
+          <p>They return. In different situations. Through different people. At different stages of life.</p>
+          <p>Modern Dharma exists to stay with those questions long enough for patterns to emerge.</p>
+
+          <ul class="not-list" aria-label="What Modern Dharma is not">
+            <li>Not a school.</li>
+            <li>Not a doctrine.</li>
+            <li>Not a source of certainty.</li>
+            <li>Simply an ongoing investigation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="belief">
+      <div class="section-inner split">
+        <div>
+          <p class="section-label"><span aria-hidden="true">△</span> 02 / WHAT WE BELIEVE</p>
+          <h2>Questions that shape a life.</h2>
+        </div>
+
+        <div class="section-copy">
+          <p>Many of the questions that shape a life cannot be solved once and for all.</p>
+
+          <div class="questions">
+            <div class="question"><span>01</span>What is trying to emerge?</div>
+            <div class="question"><span>02</span>What am I here to contribute?</div>
+            <div class="question"><span>03</span>What am I still trying to prove?</div>
+            <div class="question"><span>04</span>What keeps repeating?</div>
+            <div class="question"><span>05</span>What is this experience trying to teach me?</div>
+          </div>
+
+          <p style="margin-top:2.4rem;">The goal is not to reach a final answer. The goal is to develop a deeper relationship with the question itself.</p>
+          <p>Modern Dharma documents that process.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="method" style="padding-top:0;">
+      <div class="section-inner">
+        <p class="section-label"><span aria-hidden="true">△</span> 03 / HOW WE WORK</p>
+        <h2>Begin with evidence.</h2>
+        <div class="section-copy" style="margin-top:2rem;">
+          <p>Most systems begin with conclusions. Modern Dharma begins with evidence.</p>
+        </div>
+
+        <div class="method-flow" aria-label="Modern Dharma method">
+          <div class="method-step"><span>01</span><strong>Experience</strong></div>
+          <div class="method-step"><span>02</span><strong>Observation</strong></div>
+          <div class="method-step"><span>03</span><strong>Recurrence</strong></div>
+          <div class="method-step"><span>04</span><strong>Evidence</strong></div>
+          <div class="method-step"><span>05</span><strong>Pattern</strong></div>
+          <div class="method-step"><span>06</span><strong>Recognition</strong></div>
+        </div>
+
+        <div class="section-copy" style="margin-top:2.7rem;">
+          <p>Every book, journal entry and investigation follows this same path.</p>
+          <p>Rather than telling readers what to think, Modern Dharma attempts to show what was observed, what continued to recur and what gradually became impossible to ignore.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="create">
+      <div class="section-inner">
+        <p class="section-label"><span aria-hidden="true">△</span> 04 / WHAT WE CREATE</p>
+        <h2>A growing body of inquiry.</h2>
+
+        <div class="pillars">
+          <article class="pillar">
+            <p class="pillar-number">01 / BOOKS</p>
+            <h3>Long-form investigations.</h3>
+            <p>Stories, essays and narrative inquiries that stay with a question long enough for its deeper pattern to become visible.</p>
+            <p class="pillar-note"><em>What Is Trying To Emerge?</em> is the first Modern Dharma story.</p>
+          </article>
+
+          <article class="pillar">
+            <p class="pillar-number">02 / THE JOURNAL</p>
+            <h3>A living notebook.</h3>
+            <p>Observations, questions, principles, frameworks and field notes gathered as the investigation unfolds in ordinary life.</p>
+            <p class="pillar-note">Each entry is a piece of evidence.</p>
+          </article>
+
+          <article class="pillar">
+            <p class="pillar-number">03 / THE READING ROOM</p>
+            <h3>A place for connection.</h3>
+            <p>A curated space where books, journal entries and reader reflections can exist in conversation with one another.</p>
+            <p class="pillar-note">For readers who prefer depth over speed.</p>
+          </article>
+
+          <article class="pillar">
+            <p class="pillar-number">04 / FUTURE MAPS</p>
+            <h3>A living knowledge architecture.</h3>
+            <p>Over time, observations, questions, books and reader reflections may form a connected map of recurring human experience.</p>
+            <p class="pillar-note">Not a final answer. A clearer field of evidence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="studio">
+      <div class="section-inner">
+        <p class="section-label"><span aria-hidden="true">△</span> 05 / THE PUBLISHING STUDIO</p>
+        <h2>Publishing is one expression.</h2>
+
+        <div class="studio-grid">
+          <div class="studio-list" aria-label="Studio capabilities">
+            <div>Writing</div>
+            <div>Editorial development</div>
+            <div>Digital publishing</div>
+            <div>Reader research</div>
+            <div>Knowledge design</div>
+            <div>Long-form inquiry</div>
+          </div>
+
+          <div class="studio-statement">
+            <strong>Modern Dharma operates as an independent publishing and inquiry studio based in Luxembourg.</strong>
+            <p>Books are among its most visible outputs, but publishing is not the primary purpose.</p>
+            <p>The primary purpose is investigation.</p>
+            <p>Publishing is simply one of the ways those investigations are shared.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-gold" id="founder">
+      <div class="section-inner founder-grid">
+        <div>
+          <p class="section-label" style="color:#6a4d10;"><span aria-hidden="true">△</span> 06 / THE FOUNDER</p>
+          <h2>Behind the investigation.</h2>
+          <div class="section-copy" style="margin-top:2rem;">
+            <p style="color:#2d230d;">Modern Dharma was founded by Suyash Pratap Singh.</p>
+            <p style="color:#2d230d;">The work explores the relationship between experience, interpretation and recurring patterns in everyday life.</p>
+            <p style="color:#2d230d;">Rather than offering prescriptions, the writing focuses on observation, recognition and the possibility that meaning is often discovered through participation rather than certainty.</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="founder-name">Suyash Pratap Singh</p>
+          <p class="founder-role">Author · Investigator · Founder</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark reader-invitation" id="readers">
+      <div class="section-inner">
+        <p class="section-label"><span aria-hidden="true">△</span> 07 / FOR READERS</p>
+        <h2>If a question follows you home...</h2>
+        <p class="invitation-copy">If a passage stays with you, if an idea continues after the page ends, or if you notice a pattern you can no longer ignore, you are already participating in the investigation.</p>
+
+        <nav class="micro-links" aria-label="Continue exploring Modern Dharma">
+          <a href="../#book"><span aria-hidden="true">△</span> Read the book <span aria-hidden="true">→</span></a>
+          <a href="../journal/"><span aria-hidden="true">△</span> Visit the journal <span aria-hidden="true">→</span></a>
+          <a href="../other-notebooks/"><span aria-hidden="true">△</span> Share an observation <span aria-hidden="true">→</span></a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="closing">
+      <blockquote>
+        <em>The questions are ancient.</em>
+        The investigation is contemporary.
+      </blockquote>
+      <div class="triangle" aria-hidden="true">△</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Modern Dharma · Luxembourg</p>
+      <p><a href="../">Return to the Reading Room →</a></p>
+    </div>
+  </footer>
+</body>
+</html>

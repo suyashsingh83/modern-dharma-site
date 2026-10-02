@@ -2484,3 +2484,12 @@ h1 {
 .book-intro-copy .book-kindle-link a::after {
   content: none !important;
 }
+
+/* =========================================================
+   ABOUT MODERN DHARMA FOOTER LINK
+   ========================================================= */
+.footer-links a:focus-visible {
+  color: var(--gold);
+  outline: 1px solid currentColor;
+  outline-offset: 0.32rem;
+}

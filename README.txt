@@ -1,18 +1,24 @@
-MODERN DHARMA - FINAL KINDLE LINK FIX
+MODERN DHARMA - ABOUT PAGE DEPLOYMENT PACKAGE
 
-This version does not invent a separate CTA style. It reuses the existing
-hero-notebook-link structure and then applies a narrow, high-specificity
-book-section safeguard.
+CONTENTS
+- index.html                  Updated homepage with About Modern Dharma in the footer
+- style.css                   Latest shared stylesheet plus footer focus treatment
+- about/index.html            New About Modern Dharma page
+- _data/book.yml              Preserved homepage Kindle-link data dependency
 
-EXPECTED DISPLAY
-△ READ ON KINDLE →
+DEPLOYMENT
+Copy the package contents into the repository root while preserving the folders.
+The new page will publish at:
+https://moderndharma.life/about/
 
-All three elements are gold. There is no underline and no visible URL.
+HOMEPAGE FOOTER
+The footer now reads:
+Privacy • Cookies • About Modern Dharma
 
-DEPLOY
-Replace these exact repository paths:
-- index.html
-- style.css
-- _data/book.yml
+FOUNDER TITLE
+The About page uses:
+AUTHOR · INVESTIGATOR · FOUNDER
 
-Then wait for GitHub Pages to finish building and hard-refresh the page.
+IMPORTANT
+Do not rename the `about` or `_data` folders.
+Wait for GitHub Pages to complete its build, then check the site in a private window or hard-refresh.
