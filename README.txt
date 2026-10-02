@@ -1,13 +1,20 @@
-# Modern Dharma Site
+MODERN DHARMA - KINDLE LINK UPDATE
 
-Static site for Modern Dharma.
+FILES
+- index.html: Updated Book section with a conditional Kindle CTA.
+- style.css: Existing CSS plus the new .book-cta styles.
+- _data/book.yml: Single source of truth for the Amazon URLs and availability text.
 
-## Files
-- `index.html` - page content and structure
-- `style.css` - responsive visual design
+TO ACTIVATE THE KINDLE LINK
+1. Open _data/book.yml.
+2. Paste the live Amazon Kindle URL into amazon_kindle_url.
+   Example:
+   amazon_kindle_url: "https://www.amazon.com/dp/XXXXXXXXXX"
+3. Change release_note when the Kindle edition is live, for example:
+   release_note: "KINDLE EDITION AVAILABLE NOW"
+4. Commit and deploy.
 
-## Local preview
-Double-click `index.html` to open it in a browser.
+If amazon_kindle_url is empty, the Kindle CTA remains hidden and the site continues to show the release note.
 
-## Survey link
-When the survey is ready, replace the `href="#"` value on the final `BEGIN REFLECTION` link in `index.html` with the Microsoft Forms URL and remove the `disabled` class and `aria-disabled="true"` attribute.
+FUTURE PAPERBACK
+The YAML already includes amazon_paperback_url for the later paperback release. It is not rendered yet, so no extra button appears before that implementation is added.

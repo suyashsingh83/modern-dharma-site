@@ -204,7 +204,15 @@ Together they continue the investigation.
           <p><em>What Is Trying To Emerge?</em> is a reflective novel about purpose, responsibility, capacity, love, and the recurring patterns that quietly shape a life.</p>
           <p>Across four acts, Arjun gradually discovers that meaning is rarely found through certainty.</p>
           <p class="attention-line"><span class="gold-leaf-text gold-leaf-text-subtle">More often, it emerges through attention.</span></p>
-		<p class="publication-note">FIRST EDITION <span aria-hidden="true">•</span> 20 DECEMBER 2026</p>
+        <p class="publication-note">{{ site.data.book.release_note | default: "FIRST EDITION • 20 DECEMBER 2026" }}</p>
+
+        {% if site.data.book.amazon_kindle_url and site.data.book.amazon_kindle_url != "" %}
+        <p class="book-cta">
+          <a href="{{ site.data.book.amazon_kindle_url }}" target="_blank" rel="noopener noreferrer">
+            {{ site.data.book.kindle_cta_label | default: "READ ON KINDLE →" }}
+          </a>
+        </p>
+        {% endif %}
         </div>
         <figure class="book-cover-panel">
           <picture>
