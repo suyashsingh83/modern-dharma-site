@@ -209,9 +209,11 @@ Together they continue the investigation.
 </p>
 
 {% if site.data.book.amazon_kindle_url and site.data.book.amazon_kindle_url != "" %}
-<p class="book-cta">
+<p class="hero-notebook-link book-kindle-link">
   <a href="{{ site.data.book.amazon_kindle_url }}" target="_blank" rel="noopener noreferrer">
-    {{ site.data.book.kindle_cta_label | default: "△ READ ON KINDLE →" }}
+    <span aria-hidden="true">△</span>
+    <span>{{ site.data.book.kindle_cta_label | default: "READ ON KINDLE" }}</span>
+    <span aria-hidden="true">→</span>
   </a>
 </p>
 {% endif %}

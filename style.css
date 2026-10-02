@@ -2443,51 +2443,44 @@ h1 {
   }
 }
 
-
-/* Modern Dharma micro-navigation style Kindle link */
-.book-cta a {
-  color: var(--gold) !important;
-  text-decoration: none !important;
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: .72rem;
-  font-weight: 600;
-  display: inline-block;
-}
-.book-cta a:hover,
-.book-cta a:focus-visible {
-  opacity: .85;
-}
-
 /* =========================================================
-   KINDLE LINK - MODERN DHARMA MICRO-NAVIGATION
+   KINDLE LINK
+   Reuses the exact homepage micro-navigation language.
    ========================================================= */
-.book-cta {
+.book-intro-copy .book-kindle-link {
   margin: 1.35rem 0 0 !important;
 }
 
-.section .book-cta a {
-  display: inline-flex;
-  align-items: center;
+.book-intro-copy .book-kindle-link a,
+.book-intro-copy .book-kindle-link a:link,
+.book-intro-copy .book-kindle-link a:visited {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.55rem !important;
   color: var(--gold) !important;
+  -webkit-text-fill-color: var(--gold) !important;
   text-decoration: none !important;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 0.64rem;
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  opacity: 0.9;
-  transition: color 0.2s ease, opacity 0.2s ease;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  font-family: Inter, Arial, sans-serif !important;
+  font-size: 0.64rem !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  opacity: 0.9 !important;
 }
 
-.section .book-cta a:hover,
-.section .book-cta a:focus-visible {
+.book-intro-copy .book-kindle-link a:hover,
+.book-intro-copy .book-kindle-link a:focus-visible {
   color: var(--gold-bright, #e0bd61) !important;
-  opacity: 1;
+  -webkit-text-fill-color: var(--gold-bright, #e0bd61) !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
 }
 
-.section .book-cta a:focus-visible {
-  outline: 1px solid currentColor;
-  outline-offset: 0.4rem;
+.book-intro-copy .book-kindle-link a::before,
+.book-intro-copy .book-kindle-link a::after {
+  content: none !important;
 }

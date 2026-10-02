@@ -1,22 +1,18 @@
-MODERN DHARMA - CORRECTED KINDLE LINK PACKAGE
+MODERN DHARMA - FINAL KINDLE LINK FIX
 
-FILES
+This version does not invent a separate CTA style. It reuses the existing
+hero-notebook-link structure and then applies a narrow, high-specificity
+book-section safeguard.
+
+EXPECTED DISPLAY
+△ READ ON KINDLE →
+
+All three elements are gold. There is no underline and no visible URL.
+
+DEPLOY
+Replace these exact repository paths:
 - index.html
 - style.css
 - _data/book.yml
 
-WHAT WAS FIXED
-1. Restored the missing opening <a> tag.
-2. The Amazon URL is now used only as the href and is not displayed as text.
-3. The visible label is rendered in the existing Modern Dharma gold micro-navigation style.
-4. The link opens in a new tab with rel="noopener noreferrer".
-5. book.yml is correctly placed inside the _data folder.
-
-DEPLOYMENT
-Copy all three included paths into the repository root, preserving `_data/book.yml`.
-
-For the temporary test, the current URL is:
-https://www.amazon.de
-
-When the Kindle listing is live, replace it in `_data/book.yml` with the direct ASIN URL, for example:
-https://www.amazon.de/dp/B0XXXXXXXX
+Then wait for GitHub Pages to finish building and hard-refresh the page.
