@@ -2493,3 +2493,30 @@ h1 {
   outline: 1px solid currentColor;
   outline-offset: 0.32rem;
 }
+
+
+.future-intro {
+  margin-top: 1rem;
+  margin-bottom: .9rem;
+}
+
+.future-investigation {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.future-investigation em {
+  font-style: italic;
+}
+
+.future-note {
+  margin-top: .4rem;
+  margin-bottom: 0;
+  color: rgba(0,0,0,.55);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+}
