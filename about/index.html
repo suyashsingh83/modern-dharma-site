@@ -383,30 +383,153 @@ layout: null
       font-size: 1.16rem !important;
       font-style: italic;
     }
+.book-sequence {
+  margin-top: 2rem;
+}
 
-    .studio-grid {
+.sequence-item {
+  margin: 0;
+}
+
+.sequence-theme {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.sequence-title {
+  margin: 0.35rem 0 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.sequence-status {
+  margin: 0.35rem 0 0;
+  color: #514c43;
+  font-size: 0.95rem;
+}
+
+.sequence-arrow {
+  margin: 0.6rem 0;
+  color: var(--gold);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.sequence-note {
+  margin-top: 1.75rem;
+  color: var(--gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+
+
+.studio-grid {
       margin-top: 3rem;
       display: grid;
       grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
       gap: clamp(3rem, 7vw, 7rem);
+      align-items: center;
     }
-
-    .studio-list {
+    .studio-framework {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-items: center;
+      text-align: center;
+    }
+    .studio-identity {
+      margin-bottom: 1rem;
+      color: var(--ivory);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: .02em;
+    }
+    .studio-identity span {
+      display: block;
+      margin-top: .28rem;
+      color: var(--muted);
+      font-family: Inter, Arial, sans-serif;
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .studio-link {
+      margin-bottom: .85rem;
+      color: var(--gold);
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+    .studio-name {
+      margin-bottom: 1.4rem;
+      color: var(--gold-bright);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .studio-layer {
+      width: 100%;
+    }
+    .studio-layer-label {
+      margin: .72rem 0 .58rem;
+      color: var(--muted);
+      font-size: .58rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .studio-boxes {
+      display: grid;
       border-top: 1px solid var(--line-dark);
       border-left: 1px solid var(--line-dark);
     }
-
-    .studio-list div {
-      padding: 1rem 1.15rem;
+    .studio-boxes-one { grid-template-columns: 1fr; }
+    .studio-boxes-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .studio-boxes-two {
+      width: 72%;
+      margin: 0 auto;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .studio-box {
+      min-height: 82px;
+      padding: 1rem .8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #d8d2c6;
       border-right: 1px solid var(--line-dark);
       border-bottom: 1px solid var(--line-dark);
-      font-size: .82rem;
-      letter-spacing: .05em;
+      font-size: .66rem;
+      font-weight: 500;
+      line-height: 1.45;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
-
+    .studio-box-foundation {
+      min-height: 94px;
+      color: var(--ivory);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: .03em;
+      text-transform: none;
+    }
+    .studio-expressions {
+      margin: .75rem 0 0;
+      color: var(--gold-bright);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.45;
+    }
     .studio-statement {
       padding-left: 1.6rem;
       border-left: 1px solid var(--gold);
@@ -433,13 +556,14 @@ layout: null
       align-items: end;
     }
 
-    .founder-name {
+.founder-name {
       margin: 0 0 1.2rem;
       font-family: "Cormorant Garamond", Georgia, serif;
       font-size: clamp(2rem, 4vw, 3.6rem);
       font-weight: 500;
       line-height: 1;
-    }
+      white-space: nowrap;
+}
 
     .founder-role {
       margin: 0;
@@ -578,6 +702,11 @@ layout: null
     }
 
     @media (max-width: 680px) {
+      .studio-boxes-three { grid-template-columns: 1fr; }
+      .studio-boxes-two { width: 100%; }
+      .studio-box { min-height: 72px; }
+      .studio-expressions { font-size: .98rem; }
+
       .topbar {
         width: calc(100% - 2.7rem);
         min-height: 76px;
@@ -595,8 +724,7 @@ layout: null
 
       .section { padding: 5.5rem 1.35rem; }
 
-      .pillars,
-      .studio-list {
+      .pillars {
         grid-template-columns: 1fr;
       }
 
@@ -736,22 +864,37 @@ layout: null
             <h3>Long-form investigations.</h3>
             <p>Stories, essays and narrative inquiries that stay with a question long enough for its deeper pattern to become visible.</p>
            
-<p class="pillar-note">
-  <em>What Is Trying To Emerge?</em> is the first Modern Dharma story.
-</p>
+<div class="book-sequence">
 
-<p class="future-intro">
-  The next investigation asks a different question.
-</p>
+  <div class="sequence-item">
+    <p class="sequence-theme">Recognition</p>
 
-<p class="future-investigation">
-  <em>What Am I Still Trying To Prove?</em>
-</p>
+    <p class="sequence-title">
+      <em>What Is Trying To Emerge?</em>
+    </p>
 
-<p class="future-note">
-  Coming next.
-</p>          
+    <p class="sequence-status">
+      Available now.
+    </p>
+  </div>
 
+  <p class="sequence-arrow" aria-hidden="true">↓</p>
+
+  <div class="sequence-item">
+    <p class="sequence-theme">Trust</p>
+
+    <p class="sequence-title">
+      <em>What Am I Still Trying To Prove?</em>
+    </p>
+
+    <p class="sequence-status">
+      In development.
+    </p>
+  </div>
+
+  <p class="pillar-note sequence-note">Each book follows a question.</p>
+
+</div>
 </article>
 
           <article class="pillar">
@@ -780,24 +923,46 @@ layout: null
 
     <section class="section section-dark" id="studio">
       <div class="section-inner">
-        <p class="section-label"><span aria-hidden="true">△</span> 05 / THE PUBLISHING STUDIO</p>
+        <p class="section-label"><span aria-hidden="true">△</span> 05 / THE STUDIO</p>
         <h2>Publishing is one expression.</h2>
 
         <div class="studio-grid">
-          <div class="studio-list" aria-label="Studio capabilities">
-            <div>Writing</div>
-            <div>Editorial development</div>
-            <div>Digital publishing</div>
-            <div>Reader research</div>
-            <div>Knowledge design</div>
-            <div>Long-form inquiry</div>
+          <div class="studio-framework" role="img" aria-label="Modern Dharma, a living investigation, is supported by the Modern Dharma Studio. Long-form inquiry is the foundation. Writing, editorial development and knowledge design form the development layer. Reader reflection and publishing and sharing lead to books, the Journal, the Reading Room, maps and future investigations.">
+            <div class="studio-identity">Modern Dharma<span>A Living Investigation</span></div>
+            <div class="studio-link" aria-hidden="true">▼</div>
+            <div class="studio-name">Modern Dharma Studio</div>
+
+            <div class="studio-layer">
+              <div class="studio-boxes studio-boxes-one">
+                <div class="studio-box studio-box-foundation">Long-Form Inquiry</div>
+              </div>
+              <p class="studio-layer-label">Foundation</p>
+            </div>
+
+            <div class="studio-layer">
+              <div class="studio-boxes studio-boxes-three">
+                <div class="studio-box">Writing</div>
+                <div class="studio-box">Editorial<br>Development</div>
+                <div class="studio-box">Knowledge<br>Design</div>
+              </div>
+              <p class="studio-layer-label">Development</p>
+            </div>
+
+            <div class="studio-layer">
+              <div class="studio-boxes studio-boxes-two">
+                <div class="studio-box">Reader<br>Reflection</div>
+                <div class="studio-box">Publishing<br>&amp; Sharing</div>
+              </div>
+              <p class="studio-layer-label">Outputs</p>
+              <p class="studio-expressions">Books · Journal · Reading Room<br>Maps · Future Investigations</p>
+            </div>
           </div>
 
           <div class="studio-statement">
-            <strong>Modern Dharma operates as an independent publishing and inquiry studio based in Luxembourg.</strong>
-            <p>Books are among its most visible outputs, but publishing is not the primary purpose.</p>
+            <strong>Modern Dharma is an independent studio for long-form inquiry, based in Luxembourg.</strong>
+            <p>Books are among its most visible expressions, but publishing is not the primary purpose.</p>
             <p>The primary purpose is investigation.</p>
-            <p>Publishing is simply one of the ways those investigations are shared.</p>
+            <p>Publishing is one of the ways those investigations are shared.</p>
           </div>
         </div>
       </div>
