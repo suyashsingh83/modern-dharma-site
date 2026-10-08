@@ -2520,3 +2520,111 @@ h1 {
   font-size: 1rem;
   font-style: italic;
 }
+
+
+/* Author origin clue: portrait tricolour and journey line */
+.author-portrait-wrap::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  width: 22px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    #ff9933 0 33.333%,
+    #f4f1e9 33.333% 66.666%,
+    #138808 66.666% 100%
+  );
+  opacity: .58;
+  z-index: 3;
+  pointer-events: none;
+}
+.author-origin {
+  margin: .8rem 0 0 !important;
+  color: rgba(170,165,154,.55) !important;
+  font-size: .64rem !important;
+  font-weight: 500;
+  line-height: 1.4 !important;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.author-origin span {
+  margin: 0 .35rem;
+  color: rgba(202,163,60,.75);
+}
+@media (max-width: 760px) {
+  .author-portrait-wrap::after {
+    left: 16px;
+    bottom: 16px;
+    width: 20px;
+  }
+  .author-origin {
+    font-size: .6rem !important;
+    letter-spacing: .18em;
+  }
+}
+
+
+/* Author origin refinement: explicit portrait accent and quieter journey line */
+.author-portrait-wrap::after {
+  content: none !important;
+}
+.author-tricolour-accent {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 4;
+  display: block;
+  width: 24px;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    #ff9933 0 33.333%,
+    #f4f1e9 33.333% 66.666%,
+    #138808 66.666% 100%
+  );
+  opacity: .68;
+  box-shadow: 0 0 0 1px rgba(11,11,11,.24);
+  pointer-events: none;
+}
+.author-origin {
+  color: rgba(170,165,154,.38) !important;
+}
+.author-origin span {
+  color: rgba(202,163,60,.48) !important;
+}
+@media (max-width: 760px) {
+  .author-tricolour-accent {
+    left: 16px;
+    bottom: 16px;
+    width: 22px;
+    height: 4px;
+  }
+}
+
+
+/* Definitive author portrait tricolour: three stacked bands */
+.author-tricolour-accent {
+  position: absolute !important;
+  left: 20px !important;
+  top: 20px !important;
+  bottom: auto !important;
+  z-index: 10 !important;
+  display: grid !important;
+  grid-template-rows: repeat(3, 3px);
+  width: 24px !important;
+  height: 9px !important;
+  overflow: hidden;
+  background: none !important;
+  opacity: .68 !important;
+  box-shadow: 0 0 0 1px rgba(11,11,11,.28);
+  pointer-events: none;
+}
+.author-tricolour-accent > span { display: block; width: 100%; height: 3px; }
+.author-tricolour-accent .tricolour-saffron { background: #ff9933; }
+.author-tricolour-accent .tricolour-white { background: #f4f1e9; }
+.author-tricolour-accent .tricolour-green { background: #138808; }
+@media (max-width: 760px) {
+  .author-tricolour-accent { left: 16px !important; top: 16px !important; }
+}
