@@ -445,14 +445,17 @@ h1 {
   border-left: 1px solid rgba(202,163,60,.22);
   pointer-events: none;
 }
+
 .author-portrait {
   display: block;
   width: 100%;
-  aspect-ratio: 2 / 2.55;
-  object-fit: cover;
-  object-position: center 38%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center top;
   filter: saturate(.92) contrast(1.03);
 }
+
 .author-copy h2 {
   margin-bottom: 2.5rem;
 }
@@ -2576,3 +2579,16 @@ h1 {
     font-size: clamp(1.45rem, 7vw, 1.85rem) !important;
   }
 }
+
+
+
+@media (max-width: 760px) {
+  .author-portrait {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: center top;
+  }
+}
+
