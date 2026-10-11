@@ -557,9 +557,19 @@ layout: null
     }
 
 
-    .founder-identity { width:100%; max-width:430px; justify-self:end; }
-    .founder-portrait-wrap { width:min(100%,360px); margin:0 0 2rem; overflow:hidden; border:1px solid rgba(36,27,8,.28); background:rgba(36,27,8,.08); }
-    .founder-portrait { display:block; width:100%; height:auto; aspect-ratio:1 / 1; object-fit:cover; object-position:center; }
+.founder-identity {
+    width:100%;
+    max-width:430px;
+    justify-self:end;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+    .founder-portrait-wrap { width:min(100%,360px); margin:0 0 2.5rem; overflow:hidden; border:1px solid rgba(36,27,8,.28); background:rgba(36,27,8,.08); }
+    .founder-portrait { display:block; width:100%;
+      height: auto; }
     .founder-name {
       margin: 0 0 1.2rem;
       font-family: "Cormorant Garamond", Georgia, serif;
