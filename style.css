@@ -2641,3 +2641,10 @@ h1 {
 
 
 .about-footer-link{margin-top:1.2rem;display:inline-flex;}
+
+
+/* About page founder portrait */
+.about-page .founder-identity{width:100%;max-width:430px;justify-self:end;}
+.about-page .founder-portrait-wrap{width:min(100%,360px);margin:0 0 2rem;overflow:hidden;border:1px solid rgba(36,27,8,.28);background:rgba(36,27,8,.08);}
+.about-page .founder-portrait{display:block;width:100%;height:auto;aspect-ratio:1 / 1;object-fit:cover;object-position:center;}
+@media(max-width:880px){.about-page .founder-identity{max-width:520px;justify-self:start}.about-page .founder-portrait-wrap{width:min(100%,360px);margin-bottom:1.6rem}}

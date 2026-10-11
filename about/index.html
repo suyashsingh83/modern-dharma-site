@@ -556,7 +556,11 @@ layout: null
       align-items: end;
     }
 
-.founder-name {
+
+    .founder-identity { width:100%; max-width:430px; justify-self:end; }
+    .founder-portrait-wrap { width:min(100%,360px); margin:0 0 2rem; overflow:hidden; border:1px solid rgba(36,27,8,.28); background:rgba(36,27,8,.08); }
+    .founder-portrait { display:block; width:100%; height:auto; aspect-ratio:1 / 1; object-fit:cover; object-position:center; }
+    .founder-name {
       margin: 0 0 1.2rem;
       font-family: "Cormorant Garamond", Georgia, serif;
       font-size: clamp(2rem, 4vw, 3.6rem);
@@ -692,6 +696,8 @@ layout: null
       }
 
       .hero-note { max-width: 520px; }
+      .founder-identity { max-width:520px; justify-self:start; }
+      .founder-portrait-wrap { width:min(100%,360px); margin-bottom:1.6rem; }
 
       .method-flow {
         grid-template-columns: repeat(3, 1fr);
@@ -1041,9 +1047,24 @@ layout: null
           </div>
         </div>
 
-        <div>
+        <div class="founder-identity">
+
+
+          <figure class="founder-portrait-wrap">
+
+
+            <img class="founder-portrait" src="../assets/suyash-founder.jpg" alt="Portrait of Modern Dharma founder Suyash Pratap Singh" loading="lazy" decoding="async">
+
+
+          </figure>
+
+
           <p class="founder-name">Suyash Pratap Singh</p>
+
+
           <p class="founder-role">Author · Investigator · Founder</p>
+
+
         </div>
       </div>
     </section>
