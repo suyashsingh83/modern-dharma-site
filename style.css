@@ -2592,3 +2592,50 @@ h1 {
   }
 }
 
+/* Quiet sample-chapter links in the book sequence */
+.sequence-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .4rem .75rem;
+  margin-top: .35rem;
+}
+
+.sequence-meta .sequence-status {
+  margin: 0;
+}
+
+.sequence-sample-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  color: #6b5014;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: .92rem;
+  font-style: italic;
+  line-height: 1.4;
+  text-decoration: none;
+  opacity: .78;
+  transition: color .2s ease, opacity .2s ease, transform .2s ease;
+}
+
+.sequence-sample-link:hover,
+.sequence-sample-link:focus-visible {
+  color: var(--gold);
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.sequence-sample-link:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (max-width: 560px) {
+  .sequence-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .2rem;
+  }
+}
+

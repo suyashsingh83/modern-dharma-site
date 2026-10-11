@@ -755,6 +755,55 @@ layout: null
         flex-direction: column;
       }
     }
+  
+
+/* Quiet sample-chapter links in the book sequence */
+.sequence-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .4rem .75rem;
+  margin-top: .35rem;
+}
+
+.sequence-meta .sequence-status {
+  margin: 0;
+}
+
+.sequence-sample-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  color: #6b5014;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: .92rem;
+  font-style: italic;
+  line-height: 1.4;
+  text-decoration: none;
+  opacity: .78;
+  transition: color .2s ease, opacity .2s ease, transform .2s ease;
+}
+
+.sequence-sample-link:hover,
+.sequence-sample-link:focus-visible {
+  color: var(--gold);
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.sequence-sample-link:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (max-width: 560px) {
+  .sequence-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .2rem;
+  }
+}
+
   </style>
 </head>
 <body class="about-page">
@@ -879,9 +928,12 @@ layout: null
       <em>What Is Trying To Emerge?</em>
     </p>
 
-    <p class="sequence-status">
-      Available now.
-    </p>
+    <div class="sequence-meta">
+      <p class="sequence-status">Available now.</p>
+      <a class="sequence-sample-link" href="/assets/process.pdf" aria-label="Read Process, a sample chapter from What Is Trying To Emerge?">
+        Process <span aria-hidden="true">→</span>
+      </a>
+    </div>
   </div>
 
   <p class="sequence-arrow" aria-hidden="true">↓</p>
@@ -893,9 +945,12 @@ layout: null
       <em>What Am I Still Trying To Prove?</em>
     </p>
 
-    <p class="sequence-status">
-      In development.
-    </p>
+    <div class="sequence-meta">
+      <p class="sequence-status">In development.</p>
+      <a class="sequence-sample-link" href="/assets/barefoot.pdf" aria-label="Read Barefoot, a work-in-progress chapter from What Am I Still Trying To Prove?">
+        Barefoot <span aria-hidden="true">→</span>
+      </a>
+    </div>
   </div>
 
   <p class="pillar-note sequence-note">Each book follows a question.</p>
