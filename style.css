@@ -2232,6 +2232,18 @@ h1 {
    ========================================================= */
 .reader-reflection-page { min-height:100vh; background:var(--black); overflow-x:hidden; }
 .reflection-page-header { min-height:92px; padding:0 6vw; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--white-line); }
+
+.reflection-page-prebook-note{
+  margin: 0.85rem 0 0.65rem;
+  color: #d9d4c9;
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+.hero-notebook-link.reflection-page-book-link{
+  margin-top: 0;
+}
+
 .reflection-page-back { color:var(--muted); font-size:.65rem; font-weight:500; letter-spacing:.16em; text-decoration:none; transition:color .2s ease; }
 .reflection-page-back:hover,.reflection-page-back:focus-visible { color:var(--gold); }
 .reflection-page-hero { padding:9rem 6vw 8rem; position:relative; overflow:hidden; isolation:isolate; background:radial-gradient(circle at 82% 20%,rgba(202,163,60,.055),transparent 28%),var(--black); }
