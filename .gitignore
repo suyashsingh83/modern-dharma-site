@@ -1,0 +1,16 @@
+# Jekyll builds the site into these folders when you run it locally
+# (for example from VS Code). GitHub Pages builds its own copy, so
+# they never belong in the repository.
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Ruby tooling, if Jekyll is installed locally
+.bundle/
+vendor/
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
