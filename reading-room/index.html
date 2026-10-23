@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    READING ROOM 2.0 — RECOGNITION JOURNEY · Stage 1 soft launch at /reading-room/
+    Source: ModernDharma-ReadingRoom2.0, branch experiment/recognition-journey (Update 5).
+    Not linked from the site. noindex until Stage 2.
+
+    Threshold → Constellation I–IV → Silence → Is this a pattern?
+              → the light again → Book 1.
+    The site shows, places, juxtaposes and invites. It never interprets.
+    The Reading Room is Act I: clues, not conclusions.
+
+    MATERIAL
+      Book fragments and Investigation Journal questions for Chapters 2, 6,
+      11, 12, 13, 14, 18 and 19 are used exactly as supplied by the author
+      in the "Prototype Update 4" brief (manuscript not in this repository).
+      Chapter 5 (one fragment) is verbatim from the published sample,
+      modern-dharma-site/assets/process.pdf.
+      Field observations: image lines from modern-dharma-site/_data/journal.yml.
+      Not used: Reader material; Chapter 21 (it contains answers).
+    noindex. No analytics. No storage. No accounts.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>The Reading Room | Modern Dharma</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Tokens copied from moderndharma.life style.css */
+    :root {
+      --black: #0b0b0b;
+      --black-soft: #11110f;
+      --gold: #caa33c;
+      --gold-rgb: 202, 163, 60;
+      --ivory: #f0ece3;
+      --muted: #aaa59a;
+      --line: rgba(202, 163, 60, 0.22);
+      --hold: 2600ms;
+      --arrive: 2200ms;           /* how long one fragment takes to surface; set per constellation */
+    }
+    @media (prefers-reduced-motion: reduce) { :root { --hold: 800ms; } }
+
+    * { box-sizing: border-box; margin: 0; }
+    html, body { min-height: 100%; }
+    body {
+      background: var(--black);
+      color: var(--ivory);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .label {
+      font-family: "Inter", Arial, sans-serif;
+      font-size: .64rem; font-weight: 500; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .label span { margin-right: .7rem; }
+    .fade {
+      opacity: 0; transform: translateY(5px);
+      transition: opacity var(--arrive) cubic-bezier(.4, 0, .2, 1), transform var(--arrive) cubic-bezier(.4, 0, .2, 1);
+    }
+    .fade.on { opacity: 1; transform: none; }
+    .fade.gone { opacity: 0; transform: none; transition-duration: 1800ms; }
+    @media (prefers-reduced-motion: reduce) { .fade, .fade.gone { transform: none; transition-duration: .3s; } }
+
+    /* ---------- Threshold ---------- */
+    .threshold {
+      position: fixed; inset: 0; z-index: 2;
+      display: grid; place-items: center; padding: 1.4rem;
+      user-select: none; -webkit-user-select: none;
+    }
+    .threshold::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 38% 52% at 50% 44%, rgba(var(--gold-rgb), .14), transparent 70%);
+      opacity: var(--p, 0);
+    }
+    .threshold-stack { position: relative; display: grid; justify-items: center; gap: 3rem; }
+    .door {
+      position: relative;
+      width: clamp(104px, 20vw, 140px); aspect-ratio: 9 / 19;
+      border: 1px solid var(--line); background: transparent; padding: 0;
+      cursor: pointer; touch-action: none; outline: none;
+    }
+    .door:focus-visible { box-shadow: 0 0 0 1px rgba(var(--gold-rgb), .5); }
+    .door .gap {
+      position: absolute; top: 0; bottom: 0; right: 0;
+      width: calc(2px + var(--p, 0) * 100%);
+      background: linear-gradient(to left, rgba(var(--gold-rgb), .9), rgba(var(--gold-rgb), .45));
+      box-shadow: 0 0 calc(6px + var(--p, 0) * 50px) rgba(var(--gold-rgb), calc(.2 + var(--p, 0) * .4));
+      animation: pulse 7s ease-in-out infinite;
+    }
+    .door.held .gap { animation: none; }
+    @keyframes pulse { 0%, 100% { opacity: .5; } 50% { opacity: .9; } }
+    @media (prefers-reduced-motion: reduce) { .door .gap { animation: none; opacity: .75; } }
+    .threshold-words { text-align: center; display: grid; gap: .9rem; opacity: calc(1 - var(--p, 0) * 2.5); }
+    .threshold-words .hint { color: rgba(170,165,154,.7); font-size: .58rem; letter-spacing: .24em; }
+    .threshold-words .fade { --arrive: 2400ms; }
+
+    .flood {
+      position: fixed; inset: 0; z-index: 3; pointer-events: none;
+      background: radial-gradient(ellipse 70% 80% at 50% 44%, rgba(var(--gold-rgb), .32), var(--black) 75%);
+      opacity: 0; transition: opacity 1.6s ease;
+    }
+    .flood.on { opacity: 1; }
+
+    /* ---------- Constellations ---------- */
+    .journey {
+      display: none; min-height: 100vh;
+      background: var(--black-soft);
+      transition: background-color 6s ease;
+    }
+    .journey.on { display: block; }
+    .journey.emptied { background-color: var(--black); }   /* the room gets darker as the evidence leaves */
+
+    .field {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+      padding: 13vh 6vw 6vh;
+      min-height: 86vh;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-template-rows: auto clamp(3rem, 11vh, 7.5rem) auto;
+      column-gap: 1.5rem;
+      align-content: center;
+      transition: opacity 1.8s ease;
+    }
+    .field.leaving { opacity: 0; }
+    .numeral {
+      grid-column: 1 / -1; grid-row: 2; align-self: center; text-align: center;
+      color: rgba(var(--gold-rgb), .5); letter-spacing: .3em;
+    }
+
+    .piece { display: grid; gap: 1.15rem; align-content: start; }
+    .piece blockquote {
+      max-width: 27ch;
+      font-size: clamp(1.32rem, 2.05vw, 1.72rem); line-height: 1.36;
+      white-space: pre-line; text-wrap: pretty;
+    }
+    .piece.journal blockquote { font-style: italic; }
+    .piece figcaption {
+      font-family: "Inter", Arial, sans-serif; font-size: .58rem; font-weight: 500;
+      letter-spacing: .2em; line-height: 1.85; text-transform: uppercase; color: rgba(var(--gold-rgb), .6);
+    }
+    .piece figcaption b { display: block; font-weight: 500; color: rgba(var(--gold-rgb), .9); }
+
+    /* Four arrangements, so no two constellations sit the same way. */
+    .layout-a .p1 { grid-column: 1 / 6;  grid-row: 1; }
+    .layout-a .p2 { grid-column: 8 / 13; grid-row: 1; margin-top: 7rem; }
+    .layout-a .p3 { grid-column: 4 / 9;  grid-row: 3; margin-top: 1.5rem; }
+
+    .layout-b .p1 { grid-column: 1 / 5;  grid-row: 1; margin-top: 2rem; }
+    .layout-b .p2 { grid-column: 7 / 12; grid-row: 1; margin-top: 5rem; }
+    .layout-b .p3 { grid-column: 2 / 6;  grid-row: 3; }
+    .layout-b .p4 { grid-column: 8 / 13; grid-row: 3; margin-top: 3.5rem; }
+
+    .layout-c .p1 { grid-column: 3 / 8;  grid-row: 1; }
+    .layout-c .p2 { grid-column: 8 / 13; grid-row: 3; margin-top: 2.5rem; }
+    .layout-c .p3 { grid-column: 1 / 6;  grid-row: 3; }
+
+    .layout-d .p1 { grid-column: 7 / 12; grid-row: 1; }
+    .layout-d .p2 { grid-column: 1 / 6;  grid-row: 1; margin-top: 5rem; }
+    .layout-d .p3 { grid-column: 2 / 7;  grid-row: 3; margin-top: 1rem; }
+    .layout-d .p4 { grid-column: 8 / 13; grid-row: 3; margin-top: 4.5rem; }
+
+    /* The one control. It only ever offers more looking. */
+    .control { width: min(1080px, 100%); margin: 0 auto; padding: 0 6vw 14vh; text-align: center; }
+    .next {
+      appearance: none; border: 0; background: transparent; padding: .6rem 1rem; cursor: pointer;
+      display: inline-flex; flex-direction: column; align-items: center; gap: .45rem;
+      color: rgba(var(--gold-rgb), .78);
+      font: 500 .62rem/1.4 "Inter", Arial, sans-serif; letter-spacing: .24em; text-transform: uppercase;
+      opacity: 0; pointer-events: none; transition: opacity 2s ease, color .2s ease, transform .2s ease;
+    }
+    .next.ready { opacity: 1; pointer-events: auto; }
+    .next:hover, .next:focus-visible { color: var(--gold); transform: translateY(2px); outline: none; }
+    .next:focus-visible { outline: 1px solid var(--gold); outline-offset: .3rem; }
+    .next .arrow { color: var(--gold); }
+
+    /* ---------- The question, the light, Book 1 ---------- */
+    .after {
+      display: none;
+      width: min(760px, 100%); margin: 0 auto; padding: 36vh 6vw 24vh; text-align: center;
+    }
+    .after.on { display: block; }
+    .after .q { --arrive: 3200ms; text-wrap: balance; font-weight: 500; font-size: clamp(2.4rem, 5.4vw, 3.8rem); line-height: 1.04; }
+
+    /* The transitional moment: the light from the door, once more. */
+    .light {
+      display: block; width: 1px; height: 0; margin: 4.2rem auto 0;
+      background: linear-gradient(to bottom, rgba(var(--gold-rgb), 0), rgba(var(--gold-rgb), .9));
+      box-shadow: 0 0 14px rgba(var(--gold-rgb), .35);
+      transition: height 3.4s cubic-bezier(.4, 0, .2, 1);
+    }
+    .light.on { height: clamp(4.5rem, 13vh, 8rem); }
+
+    .book { margin-top: 3.4rem; }
+    .book .fade { --arrive: 2600ms; }
+    .book .invite { color: var(--muted); font-size: clamp(1.3rem, 2.4vw, 1.6rem); line-height: 1.5; text-wrap: balance; }
+    .book .title {
+      margin-top: 2.2rem; font-weight: 500; font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: .98; letter-spacing: -.02em;
+      color: var(--gold);
+      background-image: linear-gradient(100deg, #9b7427, #d7b85e 46%, #b8892c 72%, #ead27b);
+      background-size: 160% 100%;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .book .sub { margin-top: 1.1rem; color: var(--muted); font-style: italic; font-size: 1.15rem; }
+    .book .open { margin-top: 3.2rem; }
+    .book a {
+      display: inline-flex; gap: .55rem; align-items: center; text-decoration: none;
+      color: var(--gold); font: 600 .64rem/1.5 "Inter", Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase;
+      padding: .5rem 0;
+    }
+    .book a:hover, .book a:focus-visible { color: #e0bd61; }
+    .book .also { margin-top: 4.2rem; color: rgba(170,165,154,.55); font: 400 .72rem/1.8 "Inter", Arial, sans-serif; letter-spacing: .08em; }
+    .book .also a { font: inherit; letter-spacing: inherit; text-transform: none; color: rgba(170,165,154,.85); padding: .3rem 0; }
+    .book .also a:hover, .book .also a:focus-visible { color: var(--gold); }
+    .book .also span { margin: 0 .6rem; color: rgba(var(--gold-rgb), .5); }
+
+    @media (max-width: 760px) {
+      .field {
+        grid-template-columns: repeat(8, minmax(0, 1fr)); grid-template-rows: none;
+        row-gap: 3.4rem; padding: 10vh 1.5rem 5vh; min-height: 90vh;
+      }
+      .field .piece { grid-row: auto !important; margin-top: 0 !important; }
+      .field .piece:nth-of-type(odd)  { grid-column: 1 / 8 !important; }
+      .field .piece:nth-of-type(even) { grid-column: 2 / 9 !important; }
+      .piece blockquote { font-size: 1.36rem; max-width: none; }
+      .numeral { grid-row: auto; text-align: left; order: -1; }
+      .control { padding: 0 1.5rem 12vh; }
+      .after { padding: 32vh 1.5rem 18vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Threshold -->
+  <section class="threshold" id="threshold" aria-label="Threshold">
+    <div class="threshold-stack">
+      <button class="door" id="door" type="button" aria-label="The Reading Room. Press and hold to enter.">
+        <span class="gap"></span>
+      </button>
+      <div class="threshold-words" aria-hidden="true">
+        <p class="label fade" id="t1"><span>△</span>The Reading Room</p>
+        <p class="label hint fade" id="t2">Press and hold to enter</p>
+      </div>
+    </div>
+  </section>
+  <div class="flood" id="flood"></div>
+
+  <main class="journey" id="journey">
+    <div class="field" id="field" aria-live="polite"></div>
+    <div class="control" id="control">
+      <button class="next" id="next" type="button"><span class="t">Keep looking</span><span class="arrow" aria-hidden="true">↓</span></button>
+    </div>
+
+    <!-- Silence → the question → the light → Book 1 -->
+    <section class="after" id="after" aria-labelledby="q">
+      <p class="q fade" id="q" tabindex="-1">Is this a pattern?</p>
+      <span class="light" id="light" aria-hidden="true"></span>
+      <div class="book" aria-label="The investigation">
+        <p class="invite fade" id="b1">These fragments come from a larger inquiry.</p>
+        <p class="title fade" id="b2">What Is Trying<br>To Emerge?</p>
+        <p class="sub fade" id="b3">A Modern Dharma Inquiry</p>
+        <p class="open fade" id="b4">
+          <a href="/#book"><span aria-hidden="true">△</span><span>The investigation</span><span aria-hidden="true">→</span></a>
+        </p>
+        <p class="also fade" id="b5">
+          <a href="/inquiry/">The working hypothesis</a><span aria-hidden="true">·</span><a href="/journal/">The journal</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /* ------------------------------------------------------------
+       The constellations. Clues, not conclusions.
+       Arc:  I Interesting → II Strange → III Familiar → IV "Wait…"
+       Working themes live only here, never on screen.
+       A fragment never sits beside its own chapter's journal question.
+       Array order = arrival order. `slot` = where the piece sits.
+       `pace` (ms): lead = empty room before the first clue,
+                    source = words → where they were found,
+                    gap = before the next clue,
+                    hold = extra pause before the final clue,
+                    dwell = time with the whole constellation before
+                            anything else is offered,
+                    arrive = how slowly each clue surfaces.
+       ------------------------------------------------------------ */
+    const BOOK = 'Book';
+    const IJ = 'Investigation Journal';
+    const CONSTELLATIONS = [
+      { // I · Something keeps returning. Sparse and slow: three clues, wide apart.
+        numeral: 'I', layout: 'a',
+        pace: { lead: 2800, source: 1900, gap: 4600, hold: 0, dwell: 7000, arrive: 2600 },
+        pieces: [
+          { slot: 'p1', kind: 'book',  source: BOOK, place: 'Chapter 2 · Fixation',
+            text: 'Nobody asked him to think about it. Nobody was waiting for an answer. Nobody would have noticed if he left it alone.' },
+          { slot: 'p2', kind: 'field', source: 'Field Observation', place: 'Mount Athos',
+            text: 'A mountain casting its own triangular shadow across the landscape.' },
+          { slot: 'p3', kind: 'book',  source: BOOK, place: 'Chapter 14 · Capacity',
+            text: 'If nobody was watching, what was I becoming capable of?' }
+        ]
+      },
+      { // II · Returning. A little quicker, a little denser; recurrence is felt, not stated.
+        numeral: 'II', layout: 'b',
+        pace: { lead: 2000, source: 1500, gap: 3200, hold: 0, dwell: 5600, arrive: 2200 },
+        pieces: [
+          { slot: 'p1', kind: 'book',    source: BOOK, place: 'Chapter 6 · Waiting',
+            text: 'What do I actually want?' },
+          { slot: 'p4', kind: 'field',   source: 'Field Observation', place: 'The garden',
+            text: 'The garden changed.' },
+          { slot: 'p2', kind: 'book',    source: BOOK, place: 'Chapter 13 · Mirror',
+            text: 'You repeatedly become interested when something stops making sense.' },
+          { slot: 'p3', kind: 'journal', source: IJ, place: 'Chapter 2',
+            text: 'Why did he keep returning?' }
+        ]
+      },
+      { // III · The first answer is not the answer. Lighter than before: three clues.
+        numeral: 'III', layout: 'c',
+        pace: { lead: 2200, source: 1700, gap: 3800, hold: 0, dwell: 6000, arrive: 2400 },
+        pieces: [
+          { slot: 'p1', kind: 'book',    source: BOOK, place: 'Chapter 5 · Process',
+            text: '“I’ve been trying to teach chemical bonding.”\n“That was the plan.”\n“Wrong plan.”' },
+          { slot: 'p3', kind: 'journal', source: IJ, place: 'Chapter 6',
+            text: 'What am I waiting for?' },
+          { slot: 'p2', kind: 'book',    source: BOOK, place: 'Chapter 12 · Again',
+            text: 'I already know all this.\nI just don’t move.' }
+        ]
+      },
+      { // IV · Another way through → "Wait…". The final clue arrives alone, after a held breath.
+        numeral: 'IV', layout: 'd',
+        pace: { lead: 2400, source: 1700, gap: 3600, hold: 3400, dwell: 7500, arrive: 2600 },
+        pieces: [
+          { slot: 'p1', kind: 'book',    source: BOOK, place: 'Chapter 18 · Possibility',
+            text: 'It never really felt like his to keep.' },
+          { slot: 'p2', kind: 'journal', source: IJ, place: 'Chapter 19',
+            text: 'What was strength for if not this?' },
+          { slot: 'p3', kind: 'book',    source: BOOK, place: 'Chapter 11 · Krishna',
+            text: 'I keep ending up in exactly the same place wearing different clothes.' },
+          { slot: 'p4', kind: 'journal', source: IJ, place: 'Chapter 12',
+            text: 'How many times does something need to repeat before you stop calling it coincidence?' }
+        ]
+      }
+    ];
+
+    /* The silence and the handoff (ms). */
+    const SILENCE = {
+      withdraw: 1100,   // stagger as each clue leaves, last-arrived first
+      empty: 7000,      // the room, empty, before the question
+      alone: 10000,     // the question, alone
+      light: 3400,      // the light from the door grows
+      afterLight: 1600  // before the book is named
+    };
+
+    (() => {
+      const $ = id => document.getElementById(id);
+      const root = document.documentElement;
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const wait = ms => new Promise(r => setTimeout(r, reduced ? Math.min(ms, 150) : ms));
+      const show = el => requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('on')));
+
+      /* ---------- Threshold ---------- */
+      const threshold = $('threshold'), door = $('door');
+      const HOLD = parseFloat(getComputedStyle(root).getPropertyValue('--hold'));
+      let p = 0, holding = false, last = 0, raf = 0, entered = false;
+
+      setTimeout(() => $('t1').classList.add('on'), reduced ? 0 : 1400);
+      setTimeout(() => $('t2').classList.add('on'), reduced ? 0 : 3800);
+
+      function tick(now) {
+        const dt = last ? now - last : 16; last = now;
+        p = Math.max(0, Math.min(1, p + (holding ? dt / HOLD : -dt / (HOLD * 1.6))));
+        threshold.style.setProperty('--p', (p * p * (3 - 2 * p)).toFixed(4));
+        if (p >= 1 && !entered) return enter();
+        if (holding || p > 0) raf = requestAnimationFrame(tick); else { raf = 0; last = 0; }
+      }
+      const press = e => { if (entered) return; e.preventDefault(); holding = true; door.classList.add('held'); if (!raf) { last = 0; raf = requestAnimationFrame(tick); } };
+      const release = () => { holding = false; door.classList.remove('held'); };
+      door.addEventListener('pointerdown', e => { door.setPointerCapture?.(e.pointerId); press(e); });
+      door.addEventListener('pointerup', release);
+      door.addEventListener('pointercancel', release);
+      door.addEventListener('contextmenu', e => e.preventDefault());
+      door.addEventListener('keydown', e => { if ((e.key === ' ' || e.key === 'Enter') && !e.repeat) press(e); });
+      door.addEventListener('keyup', e => { if (e.key === ' ' || e.key === 'Enter') release(); });
+      door.focus({ preventScroll: true });
+
+      async function enter() {
+        entered = true; holding = false; cancelAnimationFrame(raf);
+        const flood = $('flood');
+        flood.classList.add('on');
+        await wait(1700);
+        threshold.remove();
+        $('journey').classList.add('on');
+        flood.classList.remove('on');
+        await wait(1800);
+        flood.remove();
+        constellation(0);
+      }
+
+      /* ---------- Constellations ---------- */
+      const field = $('field'), next = $('next');
+      let index = 0, busy = true, current = [];
+
+      function render(item) {
+        const fig = document.createElement('figure');
+        fig.className = 'piece ' + (item.kind === 'field' ? 'field-note' : item.kind) + ' ' + item.slot;
+        const q = document.createElement('blockquote');
+        q.className = 'fade';
+        q.textContent = item.text;
+        const cap = document.createElement('figcaption');
+        cap.className = 'fade';
+        const b = document.createElement('b'); b.textContent = item.source;
+        cap.append(b, item.place || '');
+        fig.append(q, cap);
+        return { fig, q, cap };
+      }
+
+      async function constellation(i) {
+        busy = true;
+        const c = CONSTELLATIONS[i], t = c.pace;
+        field.style.setProperty('--arrive', t.arrive + 'ms');
+        field.className = 'field layout-' + c.layout;
+        field.innerHTML = '';
+        field.setAttribute('aria-label', 'Constellation ' + c.numeral);
+        const rendered = c.pieces.map(item => ({ item, ...render(item) }));
+        // DOM order follows the slots, so phones read top to bottom.
+        [...rendered].sort((a, b) => a.item.slot.localeCompare(b.item.slot)).forEach(r => field.append(r.fig));
+        const numeral = document.createElement('p');
+        numeral.className = 'label numeral fade';
+        numeral.textContent = c.numeral;
+        field.append(numeral);
+        current = rendered;
+        current.numeral = numeral;
+
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        await wait(900);
+        show(numeral);
+        await wait(t.lead);
+        for (let k = 0; k < rendered.length; k++) {
+          const r = rendered[k];
+          if (k === rendered.length - 1 && t.hold) await wait(t.hold);
+          show(r.q);
+          await wait(t.source);
+          show(r.cap);
+          if (k < rendered.length - 1) await wait(t.gap);
+        }
+        await wait(t.dwell);
+        next.classList.add('ready');
+        busy = false;
+      }
+
+      next.addEventListener('click', async () => {
+        if (busy) return;
+        busy = true;
+        next.classList.remove('ready');
+        if (index < CONSTELLATIONS.length - 1) {
+          field.classList.add('leaving');
+          await wait(1800);
+          field.classList.remove('leaving');
+          await wait(600);
+          constellation(++index);
+        } else {
+          silence();
+        }
+      });
+
+      /* ---------- Silence → question → the light → Book 1 ---------- */
+      async function silence() {
+        $('control').remove();
+        // The evidence withdraws one clue at a time, the last to arrive leaving first.
+        for (const r of [...current].reverse()) {
+          r.cap.classList.add('gone');
+          r.q.classList.add('gone');
+          await wait(SILENCE.withdraw);
+        }
+        current.numeral.classList.add('gone');
+        $('journey').classList.add('emptied');
+        await wait(1900);
+        field.remove();
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        $('after').classList.add('on');
+        await wait(SILENCE.empty);   // nothing at all
+
+        show($('q')); $('q').focus({ preventScroll: true });
+        await wait(SILENCE.alone);   // leave the question alone
+
+        // One transitional moment: the light from the door, once more.
+        $('light').classList.add('on');
+        await wait(600);
+        const qTop = $('q').getBoundingClientRect().top + scrollY;
+        window.scrollTo({ top: Math.max(0, qTop - innerHeight * 0.12), behavior: reduced ? 'auto' : 'smooth' });
+        await wait(SILENCE.light - 600 + SILENCE.afterLight);
+
+        show($('b1')); await wait(3000);
+        show($('b2')); await wait(1700);
+        show($('b3')); await wait(2000);
+        show($('b4')); await wait(5000);
+        show($('b5'));
+      }
+    })();
+  </script>
+</body>
+</html>
