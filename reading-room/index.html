@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <!--
-    READING ROOM 2.0 — RECOGNITION JOURNEY · Stage 1 soft launch at /reading-room/
+    READING ROOM 2.0 — RECOGNITION JOURNEY · copy at /reading-room/ (the Instagram link)
+    The front door at / serves the same page. Keep the two copies identical.
     Source: ModernDharma-ReadingRoom2.0, branch experiment/recognition-journey (Update 5).
-    Not linked from the site. noindex until Stage 2.
 
     Threshold → Constellation I–IV → Silence → Is this a pattern?
               → the light again → Book 1.
@@ -23,7 +23,8 @@
   -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://moderndharma.life/">
   <title>The Reading Room | Modern Dharma</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,6 +100,14 @@
     .threshold-words { text-align: center; display: grid; gap: .9rem; opacity: calc(1 - var(--p, 0) * 2.5); }
     .threshold-words .hint { color: rgba(170,165,154,.7); font-size: .58rem; letter-spacing: .24em; }
     .threshold-words .fade { --arrive: 2400ms; }
+    .threshold-past { margin-top: -1.4rem; opacity: calc(1 - var(--p, 0) * 2.5); }
+    .threshold-past a {
+      color: rgba(170,165,154,.5); text-decoration: none; padding: .5rem .3rem;
+      font: 400 .72rem/1.6 "Cormorant Garamond", Georgia, serif; font-style: italic; font-size: .95rem; letter-spacing: .02em;
+      transition: color .3s ease;
+    }
+    .threshold-past a:hover, .threshold-past a:focus-visible { color: var(--gold); outline: none; }
+    .threshold-past a:focus-visible { text-decoration: underline; text-underline-offset: .3em; }
 
     .flood {
       position: fixed; inset: 0; z-index: 3; pointer-events: none;
@@ -247,6 +256,7 @@
         <p class="label fade" id="t1"><span>△</span>The Reading Room</p>
         <p class="label hint fade" id="t2">Press and hold to enter</p>
       </div>
+      <p class="threshold-past fade" id="t3"><a href="/book/">or go straight to the website</a></p>
     </div>
   </section>
   <div class="flood" id="flood"></div>
@@ -266,7 +276,7 @@
         <p class="title fade" id="b2">What Is Trying<br>To Emerge?</p>
         <p class="sub fade" id="b3">A Modern Dharma Inquiry</p>
         <p class="open fade" id="b4">
-          <a href="/#book"><span aria-hidden="true">△</span><span>The investigation</span><span aria-hidden="true">→</span></a>
+          <a href="/book/"><span aria-hidden="true">△</span><span>The investigation</span><span aria-hidden="true">→</span></a>
         </p>
         <p class="also fade" id="b5">
           <a href="/inquiry/">The working hypothesis</a><span aria-hidden="true">·</span><a href="/journal/">The journal</a>
@@ -370,6 +380,7 @@
 
       setTimeout(() => $('t1').classList.add('on'), reduced ? 0 : 1400);
       setTimeout(() => $('t2').classList.add('on'), reduced ? 0 : 3800);
+      setTimeout(() => $('t3').classList.add('on'), reduced ? 0 : 3800);
 
       function tick(now) {
         const dt = last ? now - last : 16; last = now;
