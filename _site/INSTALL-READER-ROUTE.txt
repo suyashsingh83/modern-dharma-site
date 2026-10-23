@@ -1,0 +1,13 @@
+FILES TO ADD TO THE ROOT OF YOUR modern-dharma-site REPOSITORY
+
+CNAME
+reader/index.html
+
+The /reader page redirects to /#reflection on the main site.
+
+Final repository structure:
+CNAME
+index.html
+style.css
+assets/modern-dharma-sample.pdf
+reader/index.html
