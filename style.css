@@ -1140,6 +1140,14 @@ h1 {
   line-height: 1.85;
 }
 .journal-continuation .button { margin-top: 2.2rem; }
+.journal-continuation > p a,
+.about-copy p a {
+  text-decoration-color: rgba(202, 163, 60, .55);
+  text-underline-offset: .25em;
+  transition: color .2s ease;
+}
+.journal-continuation > p a:hover, .journal-continuation > p a:focus-visible,
+.about-copy p a:hover, .about-copy p a:focus-visible { color: var(--gold); }
 .journal-back-link {
   margin-top: 1.5rem;
   color: var(--gold);
